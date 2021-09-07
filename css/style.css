@@ -1,0 +1,186 @@
+@font-face {
+    font-family: f;
+    src: url(../font/2.ttf);
+  }
+*,::after,::before{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+html{
+    direction: rtl;
+    font-family: f;
+    font-size: 16px;
+    background-color: #1a2720;
+    color: white;
+}
+/*header{
+    position: absolute;
+    z-index: 4;
+    width: 100%;
+}*/
+nav{
+    height:60px;
+    overflow: hidden;
+    transition-duration: .6s;
+}
+nav>*{
+    vertical-align: middle;
+    display: inline-block;
+}
+nav span{
+    height: 60px;
+    padding: 9px;
+}
+nav img{
+    display: inline-block;
+    height: 100%;
+}
+nav ul{
+}
+nav li{
+    display: inline-block;
+    height: 100%;
+}
+nav li:hover,nav li:active{
+    background-color: darkorange;
+}
+nav a{
+    width: 100%;
+    display: inline-block;
+    padding: 18px 30px;
+    text-decoration: none;
+    color: blanchedalmond;
+    padding: 10px 20px;
+    font-size: 1.3em;
+}
+nav button{
+    float: right;
+    width: 60px;
+    height: 60px;
+    display: none;
+    background-color: transparent;
+    border: 0;
+}
+nav button div{
+    height: 4px;
+    margin: 10px auto;
+    width: 42px;
+    border-radius: 4px;
+    background-color: darkorange;
+}
+.s1{
+    position: relative;
+}
+.s1 img{
+    width: 100%;
+}
+.s1 h1{
+    position: absolute;
+    font-size: 4em;
+    top: 86%;
+    left: 3%;
+    color: rgba(240, 255, 255, 0.527);
+}
+.s2{
+    padding-bottom: 20px;
+    font-size: 1.5em;
+}
+.s2 h1{
+    text-align: center;
+    font-size: 3em;
+}
+.s2 h3{
+    padding-right: 20px;
+    font-size: 2em;
+}
+.s2>div>*{
+    width: 49.5%;
+    display: inline-block;
+    vertical-align: top;
+}
+.s2 img{
+    height: 30px;
+    background-color: darkorange;
+    border-radius: 2px;
+    padding: 2px;
+}
+.s2>div>div>div{
+    padding: 10px 50px;
+}.s2>div>div>div>*{
+    vertical-align: middle;
+    margin: 0 10px;
+}
+.s2 form>*{
+    display: block;
+    margin: 10px 50px;
+    width: 80%;
+}
+.s2 label{
+margin-bottom: -10px;
+}
+input,textarea{
+    padding: 5px;
+    color:  darkorange;
+    background-color: transparent;
+    border: solid 2px darkorange;
+    border-radius: 2.5px;
+    transition: all .4s ease 0s;
+}
+input[type="submit"]{
+    font-size: 1em;
+    font-family: f;
+    color:  darkorange;
+    background-color: transparent;
+    border: solid 2px darkorange;
+    border-radius: 2.5px;
+    transition: all .4s ease 0s;
+}
+input[type="submit"]:hover,input[type="submit"]:active{
+    background-color: darkorange;
+    color: floralwhite;
+}
+footer{
+    background-color: darkorange;
+    color: #1a2720;
+    text-align: center;
+}
+@media (max-width: 600px) {
+    nav{
+        direction: ltr;
+    }
+    nav button{
+        display: inline-block;
+    }
+    nav ul{
+        display: block;
+        direction: rtl;
+        padding-right: 60px;
+    }
+    nav li{
+        display: block;
+        width: 50%;
+    }
+    nav button div{
+        transition-duration: .6s;
+    }
+    .x1{    
+        transform: rotate(45deg) translate3d(10px,10px,0px);
+    }
+    .x2{
+        transform: rotate(-45deg) translate3d(9px,-8px,0px);
+    }
+    .s1 h1{
+        font-size: 1.3em;
+    }
+    .s2>div>*{
+        display: block;
+        width: 100%;
+    }
+    .s2{
+      font-size: 1.2em;  
+    }
+    .s2 h1{
+        font-size: 2em;
+    }
+}
