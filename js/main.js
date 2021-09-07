@@ -24,9 +24,11 @@ bumore.onclick=()=>{
     let div=s3.getElementsByTagName("div")[0];
     if(buac2==false){
         div.style.display="block";
+        bumore.innerHTML="إخفاء";
         buac2=true;
     }else{
         div.style.display="none";
+        bumore.innerHTML="المزيد";
         buac2=false;
     }
 }
