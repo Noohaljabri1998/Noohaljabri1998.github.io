@@ -74,6 +74,7 @@ nav button div{
 }
 .s1 img{
     width: 100%;
+    background-color: coral;
 }
 .s1 h1{
     position: absolute;
@@ -168,7 +169,7 @@ footer{
         transform: rotate(45deg) translate3d(10px,10px,0px);
     }
     .x2{
-        transform: rotate(-45deg) translate3d(9px,-8px,0px);
+        transform: rotate(-45deg) translate3d(10px,-10px,0px);
     }
     .s1 h1{
         font-size: 1.3em;
