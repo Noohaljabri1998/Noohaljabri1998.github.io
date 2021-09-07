@@ -74,7 +74,8 @@ nav button div{
 }
 .s1 img{
     width: 100%;
-    background-color: coral;
+    background-color: #4a464a;
+    height: 400px;
 }
 .s1 h1{
     position: absolute;
@@ -87,7 +88,7 @@ nav button div{
     padding-bottom: 20px;
     font-size: 1.5em;
 }
-.s2 h1{
+h1{
     text-align: center;
     font-size: 3em;
 }
@@ -128,7 +129,7 @@ input,textarea{
     border-radius: 2.5px;
     transition: all .4s ease 0s;
 }
-input[type="submit"]{
+input[type="submit"],.s3 button{
     font-size: 1em;
     font-family: f;
     color:  darkorange;
@@ -137,9 +138,23 @@ input[type="submit"]{
     border-radius: 2.5px;
     transition: all .4s ease 0s;
 }
-input[type="submit"]:hover,input[type="submit"]:active{
+input[type="submit"]:hover,input[type="submit"]:active,.s3 button:hover,.s3 button:active{
     background-color: darkorange;
     color: floralwhite;
+}
+.s3{
+    font-size: 1.4em;
+    padding: 100px 10%;
+}
+.s3>div{
+    display: none;
+}
+.s3 button{
+    padding: 3px 35px;
+    float: left;
+}
+.s3 h1,.s3 h2,.s3 h3,.s3 h4,.s3 h5,.s3 h6{
+    color: darkorange;
 }
 footer{
     background-color: darkorange;
@@ -183,5 +198,8 @@ footer{
     }
     .s2 h1{
         font-size: 2em;
+    }
+    .s3{
+        font-size: 1.2em;
     }
 }
