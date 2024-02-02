@@ -37,7 +37,7 @@ function redLineGoDown() {
         "translate(-50%, -50%) rotate(90deg) scale(1)";
 
       setTimeout(() => {
-        document.getElementById("nooh-text-preload").style.width = "100px";
+        document.getElementById("nooh-text-preload").classList.add("reset-width");
         document.querySelectorAll("#nooh-text-preload>div").forEach((el) => {
           el.style.transform = "unset";
           el.style.opacity = "1";
@@ -213,10 +213,21 @@ var dd= setInterval(() => {
 
 ////scroll horizontal ///////////////////////////////////////////////////////
 
-var workScrollArea = document.querySelector("#work-scrolling-area");
-var unincludedArea=document.querySelector("#work-scrolling-area").clientHeight-(window.innerWidth*2);
 
+
+
+var workScrollArea = document.querySelector("#work-scrolling-area");
+if (window.innerWidth<950) {
+
+var unincludedArea=document.querySelector("#work-scrolling-area").clientHeight-(window.innerWidth*2);
 document.querySelector("#vertical-long").style.height =document.querySelector("#vertical-long").clientHeight+(unincludedArea)+"px";
+} else {
+  
+var itemWidth=document.querySelector("#work-scrolling-area").clientHeight*2;
+document.querySelector("#vertical-long").style.height =(document.querySelector("#vertical-long").clientHeight/2.5)+"px";
+}
+
+
 workScrollArea.addEventListener("scroll", function(event) {
   var scrollPosition = Math.floor( workScrollArea.scrollTop/2);
   document.querySelector("#works-container").style.transform="translateX(-"+scrollPosition+"px)";
@@ -267,4 +278,4 @@ function copyLink() {
   document.execCommand("copy");
   document.body.removeChild(tempInput);
 
-}
+             }
