@@ -13,18 +13,6 @@
   --show-transform: scale(5);
   --show-transtion: opacity 2000ms, transform 400ms;
 }
-*::-webkit-scrollbar {
-  width: 4px;
-}
-
-*::-webkit-scrollbar-track {
-  background: var(--dark-blue);
-}
-
-*::-webkit-scrollbar-thumb {
-  background-color: var(--red);
-  border-radius: 20px;
-}
 body {
   cursor: url("/img/Asset\ 3.png"), auto;;
   background-color: var(--dark-blue);
@@ -388,6 +376,23 @@ body {
   overflow: auto;
 
   position: relative;
+}
+
+#sections-container::-webkit-scrollbar {
+  width: 3px;
+}
+
+#sections-container::-webkit-scrollbar-track {
+  background: var(--dark-blue);
+  transition: 400ms;
+}
+#sections-container.scroll-bar-background::-webkit-scrollbar-track {
+  background: var(--light-white);
+}
+
+#sections-container::-webkit-scrollbar-thumb {
+  background-color: var(--red);
+  border-radius: 20px;
 }
 #sections-container > div {
   flex-shrink: 0;
@@ -753,9 +758,9 @@ body {
 }
 .service-card {
   display: flex;
-  width: 60%;
   background: var(--white);
   height: 21vh;
+  width: 24vh;
   border-radius: 4px;
   flex-direction: column;
   padding: 5%;
@@ -823,6 +828,9 @@ body {
   scrollbar-gutter: stable;
   transform-style: preserve-3d;
   perspective: 1000px;
+}
+#work-scrolling-area::-webkit-scrollbar {
+  width: 0px;
 }
 #work-scrolling-area ::-webkit-scrollbar {
   display: none;
@@ -926,7 +934,7 @@ transform: translateZ(100px) scale(1);
 }
 
 #barq-mangement>.work-img{
-  transform: translateZ(100px) scale(1);
+  transform: translateZ(100px) scale(.8);
   box-shadow: 6px 6px 15px rgba(0, 0, 0, 0.1);
 }
 
