@@ -13,7 +13,20 @@
   --show-transform: scale(5);
   --show-transtion: opacity 2000ms, transform 400ms;
 }
+*::-webkit-scrollbar {
+  width: 4px;
+}
+
+*::-webkit-scrollbar-track {
+  background: var(--dark-blue);
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: var(--red);
+  border-radius: 20px;
+}
 body {
+  cursor: url("/img/PNG/Asset\ 3.png"), auto;;
   background-color: var(--dark-blue);
   display: flex;
   width: 100vw;
@@ -378,10 +391,9 @@ body {
 }
 #sections-container > div {
   flex-shrink: 0;
-
   scroll-snap-stop: always;
-
   scroll-snap-align: start;
+  width: 100%!important;
 }
 .work-item {
 }
@@ -766,6 +778,7 @@ body {
   justify-content: center;
   align-items: center;
   overflow: auto;
+  pointer-events: none;
 }
 .srevice-icon > svg {
   width: 15vh;
@@ -778,6 +791,7 @@ body {
   font-weight: 700;
   text-align: center;
   color: var(--dark-blue);
+  pointer-events: none;
 }
 
 #fourth-section {
@@ -800,15 +814,18 @@ body {
 
 #work-scrolling-area {
   flex-grow: 1;
-
   overflow-y: auto;
-
   width: 100%;
-
   overflow-x: hidden;
-
   scroll-behavior: smooth;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+  scrollbar-gutter: stable;
 }
+#work-scrolling-area ::-webkit-scrollbar {
+  display: none;
+}
+
 
 #vertical-long {
   height: 1000vw;
@@ -1076,11 +1093,6 @@ a#a-links {
     right: 5vh;
   }
   #name-with-img {
-    flex-direction: row-reverse;
-    justify-content: space-between;
-    padding: 0 22vw;
-    align-items: start;
-    position: relative;
   }
   #my-photo-container {
     width: 300px;
@@ -1088,7 +1100,7 @@ a#a-links {
     border-radius: 0 0 200px 200px;
   }
   #my-info {
-    width: auto;
+    width: fit-content;
     margin-top: 16vh;
   }
   #my-name {
@@ -1096,13 +1108,10 @@ a#a-links {
   }
   #job-title {
     margin-top: 1vh;
+    padding-left: 8px;
   }
   #itroducting-my-self {
-    position: absolute;
-    left: 22vw;
-    padding: 0;
-    width: 23vw;
-    top: 50vh;
+  padding: 0;
   }
   #education {
     width: 40vw;
@@ -1113,6 +1122,17 @@ a#a-links {
   margin-right: 8vw;
   }
   #sections-container > div {
+  }
+  #first-section{
+  flex-direction: row-reverse;
+  padding: 0 12vw;
+  align-items: center;
+  }
+  #first-section>div:last-child{
+  display: flex;
+  flex-direction: column;
+  gap: 12vh;
+  padding: 0 0 0 12vh;
   }
   #second-section {
     max-width: 1200px;
@@ -1137,10 +1157,24 @@ a#a-links {
     margin: auto;
     gap: 4vw;
   }
-  .service-card {
+.service-card-container{
     width: 40vh;
     height: 40vh;
-    aspect-ratio: 3/1;
+}.srevice-icon{
+  transform: translateZ(70px) scale(.3) translateY(18px);
+}
+  
+  
+  .service-name{
+  transform: translateZ(60px) scale(.4) translateY(-214px);
+}.rotate-3d{
+    perspective: 1000px;
+}
+  .service-card {
+    transform-style: preserve-3d;
+    perspective: 100px;
+    width: 300px;
+    height: 300px;
   }
 
   #fourth-section {
