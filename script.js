@@ -1,5 +1,5 @@
 
-      var preloadPage = document.getElementById("preload-page");
+var preloadPage = document.getElementById("preload-page");
 var whiteLoaded = document.getElementById("white-loaded-in-preloading-page");
 var increacingWhiteNum = document.getElementById("white-loading-progress-num");
 var increacingBlackNum = document.getElementById("black-loading-progress-num");
@@ -89,7 +89,6 @@ function loadingPage() {
     whiteLoaded.style.height = i + "vh";
     increacingWhiteNum.innerText = i + "%";
     increacingBlackNum.innerText = i + "%";
-    console.log(i);
     if (i == 18) {
       i = 38;
     } else if (i == 50) {
@@ -159,7 +158,6 @@ function createObserver() {
   })
 }
 function handleIntersect(entries, observer) {
-    console.log(entries);
   entries.forEach((entry) => {
     if (entry.isIntersecting) {
       entry.target.classList.add("show");
@@ -231,7 +229,6 @@ document.querySelector("#vertical-long").style.height =(document.querySelector("
 workScrollArea.addEventListener("scroll", function(event) {
   var scrollPosition = Math.floor( workScrollArea.scrollTop/2);
   document.querySelector("#works-container").style.transform="translateX(-"+scrollPosition+"px)";
-  console.log("Scroll position within the element: " + scrollPosition + "px");
   // You can perform additional actions based on the scroll position within the element
 });
 
@@ -279,3 +276,62 @@ function copyLink() {
   document.body.removeChild(tempInput);
 
              }
+
+
+
+             ///setup for desktop//////////////////////////////////////
+             window.addEventListener("load",()=>{
+              if (window.innerWidth>950) {
+              
+                var nameWithImg = document.getElementById('name-with-img');
+                var myInfo = document.getElementById('my-info');
+                var introMySelf = document.getElementById('itroducting-my-self');
+                var leftContainer = document.createElement('div');
+                leftContainer.appendChild(myInfo);
+                leftContainer.appendChild(introMySelf);
+                nameWithImg.parentNode.insertBefore(leftContainer, nameWithImg.nextSibling);
+              
+             ///setup for desktop//////////////////////////////////////
+
+             
+             ///3d card hovering//////////////////////////////////////
+
+             var rotate3d = document.getElementsByClassName("rotate-3d");
+             Array.from(rotate3d).forEach((el) => {
+              el.addEventListener('mouseover', function() {
+                el.children[0].style.transition="500ms 0ms";
+                setTimeout(() => {
+                  el.children[0].style.transition="50ms 0ms";
+                }, 500);
+
+              })
+                el.addEventListener('mousemove', function(e) {
+                  console.log("pageX"+e.pageX+",,,clientWidth"+el.clientWidth);
+                  let rect = el.getBoundingClientRect();
+                  let xAxis = Math.floor(-(rect.width / 2 - e.clientX + rect.left) )/10;
+                  let yAxis = Math.floor((rect.height / 2 - e.clientY + rect.top) )/10;
+                     
+              el.children[0].style.transform = `rotateY(${xAxis}deg) rotateX(${yAxis}deg)`;
+                 });
+
+                 
+              el.addEventListener('mouseout', function() {
+                el.children[0].style.transition="500ms 0ms";
+                el.children[0].style.transform = `rotateY(0deg) rotateX(0deg)`;
+
+              })
+             });
+             
+
+
+
+
+
+             ///3d card hovering//////////////////////////////////////
+              
+              
+              
+              
+              }
+
+             })
