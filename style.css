@@ -1,1267 +1,452 @@
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-}
-:root {
-  display: block;
-  --red: #970726;
-  --white: #ffffff;
-  --gray: #d9d9d9;
-  --light-white: #f9f9f9;
-  --dark-blue: #0c0e25;
-  --show-transform: scale(5);
-  --show-transtion: opacity 2000ms, transform 400ms;
-}
-body {
-  cursor: url("/img/Asset\ 3.png"), auto;;
-  background-color: var(--dark-blue);
-  display: flex;
-  width: 100vw;
-  flex-direction: column;
-  color: var(--gray);
-  font-family: Arial, Arial, Helvetica, sans-serif;
-  font-size: 16px;
-}
-
-/* ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â¹ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Â¦ÃƒËœÃ‚Â© */
-.p {
-  line-height: 24px;
-  opacity: 0.8;
-  margin: 16px 0;
-}
-.title-with-red-square {
-  position: relative;
-
-  width: max-content;
-
-  font-size: 20px;
-
-  font-weight: 700;
-}
-.title-with-red-square::before {
-  content: "";
-  position: absolute;
-  left: -3px;
-  display: inline-block;
-  width: 35%;
-  height: 100%;
-  background: var(--red);
-  z-index: -1;
-}
-.red-line-infront-of-p {
-  position: relative;
-
-  padding-left: 12px;
-}
-.red-line-infront-of-p::before {
-  content: "";
-  display: inline-block;
-  position: absolute;
-  height: 100%;
-  background: var(--red);
-  width: 3px;
-  left: 0;
-  border-radius: 2px;
-}
-
-.title-with-red-square-before {
-  font-size: 48px;
-  font-weight: 800;
-  border-left: 8vw solid var(--red);
-  padding: 0 6vw;
-}
-
-/* ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â¹ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Â¦ÃƒËœÃ‚Â© */
-
-/* preload page */
-
-#preload-page {
-  height: 100vh;
-  position: fixed;
-  width: 100vw;
-  transition: 500ms cubic-bezier(0, 0.93, 0.23, 0.97);
-  background: var(--dark-blue);
-  z-index: 104;
-
-  --red: #c8143b;
-}
-#white-loaded-in-preloading-page {
-  background: var(--white);
-
-  height: 50vh;
-
-  width: 100vw;
-
-  transition: 300ms;
-}
-
-#white-loading-progress-num {
-  color: #ffffff;
-  font-size: 64px;
-  font-weight: 800;
-  position: absolute;
-  bottom: 16vh;
-  right: 30px;
-  mix-blend-mode: exclusion;
-}
-#black-loading-progress-num {
-  color: #000000;
-  font-size: 64px;
-  font-weight: 800;
-  position: absolute;
-  bottom: 16vh;
-  right: 30px;
-  mix-blend-mode: color;
-}
-
-#red-line-go-down {
-  transition: 500ms 600ms cubic-bezier(0, 0.51, 1, -0.26);
-  background: var(--red);
-  width: 3px;
-  position: absolute;
-  top: -100vh;
-  height: 100vh;
-  left: 50vw;
-}
-#container-of-tow-white-divs {
-  height: 100vh;
-  width: 100vw;
-  position: absolute;
-  top: 0;
-  left: 0;
-  display: flex;
-  justify-content: space-between;
-}
-
-#container-of-tow-white-divs > div {
-  transition: 700ms cubic-bezier(0, 0.89, 0.94, 0);
-  width: 50vw;
-
-  height: 0;
-
-  background: var(--white);
-}
-#right-side-split {
-}
-#left-side-split {
-}
-
-#text-container-preload {
-  display: flex;
-
-  opacity: 0;
-
-  gap: 4px;
-
-  font-size: 30px;
-
-  transition: 200ms cubic-bezier(0, 0.93, 0.23, 0.97);
-
-  font-weight: 700;
-
-  position: absolute;
-
-  top: 40%;
-
-  left: 50%;
-
-  transform: translate(-50%, -50%) rotate(90deg) scale(7);
-}
-#text-container-preload > .symbol {
-  color: var(--white);
-}
-#nooh-text-preload {
-  transition: 500ms cubic-bezier(0, 0.93, 0.23, 0.97);
-  color: var(--red);
-  display: flex;
-  justify-content: center;
-  width: 0;
-}
-#nooh-text-preload.reset-width {
-  width: 100px;
-}
-#nooh-text-preload > div {
-  transition: 200ms 0ms cubic-bezier(0, 0.93, 0.23, 0.97);
-  transform: translate(0px, 50px) scale(0.3);
-  opacity: 0;
-}
-
-#nooh-text-preload > div:nth-child(1) {
-  transition-delay: 0;
-}
-#nooh-text-preload > div:nth-child(2) {
-  transition-delay: 120ms;
-}
-#nooh-text-preload > div:nth-child(3) {
-  transition-delay: 240ms;
-}
-#nooh-text-preload > div:nth-child(4) {
-  transition-delay: 320ms;
-}
-
-/* preload page */
-
-#menu-btn {
-  position: fixed;
-  right: 30px;
-  top: 30px;
-  padding: 8px;
-  z-index: 102;
-  height: 42px;
-  width: 42px;
-}
-#menu-btn > svg {
-  position: absolute;
-  top: 0;
-  left: 0;
-  transition: 600ms cubic-bezier(0, 0.92, 0.49, 0.97);
-}
-#menu-btn.active > svg:first-child {
-  transform: scale(0) rotate(-45deg);
-}
-#menu-btn > svg:first-child {
-  transform: scale(1) rotate(0deg);
-}
-#menu-btn > svg:last-child {
-  transform: scale(0) rotate(45deg);
-}
-#menu-btn.active > svg:last-child {
-  transform: scale(1) rotate(0deg);
-}
-
-.light-color {
-  --red: #c8143b;
-}
-
-#menu-list {
-  height: 100vh;
-
-  width: 100vw;
-
-  background: var(--light-white);
-
-  display: flex;
-
-  flex-direction: column;
-
-  justify-content: center;
-
-  align-items: center;
-
-  padding: 0 0 40px 0;
-
-  z-index: 101;
-
-  position: fixed;
-
-  top: 0;
-
-  right: -100vw;
-
-  transition: 600ms cubic-bezier(0, 0.92, 0.49, 0.97);
-}
-#menu-list.active {
-  right: 0;
-}
-.menu-item {
-  color: var(--dark-blue);
-  font-size: 24px;
-  padding: 16px 24px;
-  font-weight: 700;
-  position: relative;
-  transform: translateX(215px);
-  transition: 300ms cubic-bezier(0, 0.92, 0.49, 0.97);
-}
-.active > .menu-item {
-  transform: translateX(0px);
-}
-.menu-item::before {
-  content: "";
-  display: inline-block;
-  width: 100%;
-  height: 4px;
-  background: #c8143b;
-  border-radius: 4px;
-  position: absolute;
-  bottom: 20px;
-  left: 0;
-  z-index: -1;
-}
-#contact-btn {
-  position: fixed;
-
-  right: 86px;
-
-  bottom: 86px;
-
-  background: aqua;
-
-  z-index: 100;
-}
-
-#contact-btn > div {
-  height: 52px;
-
-  z-index: 12;
-
-  display: flex;
-
-  justify-content: center;
-
-  align-items: center;
-
-  width: 52px;
-
-  background: var(--red);
-
-  border-radius: 26px;
-
-  position: absolute;
-
-  transition: var(--show-transtion);
-}
-#send-btn {
-  padding: 0 0 4px 0;
-
-  transform: rotate(45deg);
-}
-.show > #send-btn {
-  padding: 0;
-
-  transform: rotate(0deg);
-
-  background: var(--gray);
-  --white: #222;
-}
-#send-icon {
-  width: auto;
-}
-.show > div > #send-icon {
-  width: 0;
-}
-#close-icon {
-  transform: rotate(120deg) scale(0);
-  width: 0;
-  transition: var(--show-transtion);
-}
-.show > div > #close-icon {
-  transform: rotate(0deg) scale(1);
-  width: auto;
-}
-#whatsapp-btn {
-}
-.show > #whatsapp-btn {
-  transform: translate(-64px, -64px);
-}
-#linkedin-btn {
-}
-.show > #linkedin-btn {
-  transform: translate(0px, -86px);
-}
-#copy-link-btn {
-}
-.show > #copy-link-btn {
-  transform: translate(-86px, 0px);
-}
-#sections-container {
-  display: flex;
-
-  flex-direction: column;
-
-  height: 100vh;
-
-  scroll-snap-type: y mandatory;
-
-  overflow: auto;
-
-  position: relative;
-}
-
-#sections-container::-webkit-scrollbar {
-  width: 3px;
-}
-
-#sections-container::-webkit-scrollbar-track {
-  background: var(--dark-blue);
-}
-#sections-container.scroll-bar-background::-webkit-scrollbar-track {
-  background: var(--light-white);
-}
-
-#sections-container::-webkit-scrollbar-thumb {
-  background-color: var(--red);
-  border-radius: 20px;
-}
-#sections-container > div {
-  flex-shrink: 0;
-  scroll-snap-stop: always;
-  scroll-snap-align: start;
-  width: 100%!important;
-}
-.work-item {
-}
-
-#sections-container > div.show {
-}
-#float-developer-background-text {
-  position: absolute;
-  font-size: 327px;
-  left: 0;
-  top: 0;
-  width: 100vw;
-  overflow: hidden;
-  color: var(--white);
-  opacity: 0.04;
-}
-#float-developer-background-text > div {
-  font-size: 327px;
-  transform: translate(0, -87px);
-  animation-name: floating-from-side-to-side;
-  animation-duration: 150s;
-  animation-fill-mode: forwards;
-  animation-direction: alternate;
-  animation-iteration-count: infinite;
-  animation-timing-function: linear;
-}
-#side-developer-text {
-  position: absolute;
-
-  left: -57px;
-
-  font-size: 24px;
-
-  letter-spacing: 13px;
-
-  top: 0;
-
-  transform: rotate(90deg) translate(135px, 33px);
-
-  color: var(--red);
-}
-#side-line-with-num {
-  position: absolute;
-  top: 108px;
-  right: 16px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-#side-line-with-num div:first-child {
-  height: 106px;
-  background: var(--red);
-  width: 3px;
-  border-radius: 2px;
-}
-#side-line-with-num div:nth-child(2) {
-  font-size: 20px;
-  font-weight: 600;
-  transform: rotate(-90deg);
-  color: var(--red);
-}
-#side-line-with-num div:last-child {
-  height: 210px;
-  background: var(--red);
-  width: 3px;
-  border-radius: 2px;
-}
-#first-section {
-  width: 100%;
-  overflow: hidden;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  padding: 11vh 0 15vh;
-  position: relative;
-}
-#name-with-img {
-  width: 100%;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 8px;
-}
-#my-photo-container {
-  width: 150px;
-
-  position: relative;
-
-  z-index: 3;
-
-  height: 223px;
-
-  border-radius: 0 0 100px 100px;
-
-  overflow: hidden;
-}
-#my-photo-container > img {
-  width: 100%;
-
-  object-fit: cover;
-
-  height: 100%;
-}
-#curve-arrow {
-  position: absolute;
-
-  width: 100%;
-
-  height: auto;
-
-  left: 0;
-
-  bottom: 0;
-}
-#my-info {
-  width: 100%;
-}
-#my-name {
-  font-size: 32px;
-  line-height: 36px;
-  position: relative;
-  width: 100%;
-  text-align: center;
-  line-height: 32px;
-}
-#my-name::before {
-  content: "";
-  display: inline-block;
-  position: absolute;
-  height: 100%;
-  left: 0;
-  width: 40%;
-  background-color: var(--white);
-  opacity: 0.04;
-}
-#job-title {
-  display: flex;
-  width: 100%;
-  align-items: start;
-  font-size: 20px;
-  opacity: 0.8;
-  border-left: 8px solid var(--red);
-  justify-content: center;
-}
-#static-job-title {
-}
-#toggle-job-title {
-  height: 28px;
-  overflow: hidden;
-  position: relative;
-  display: inline-block;
-  margin: 0 4px;
-}
-.son {
-  font-size: 20px;
-  line-height: 24px;
-  height: 20px;
-  padding: 0;
-  position: absolute;
-  top: 0;
-  left: 0;
-  transition: 600ms;
-  display: inline-block;
-}
-.center {
-  transform: translateY(0px);
-  transition: 600ms;
-}
-.bottom {
-  transform: translateY(40px);
-  transition: 600ms;
-}
-.top {
-  transform: translateY(-40px);
-  transition: 0ms;
-}
-
-#itroducting-my-self {
-  padding-inline: 30px;
-  display: flex;
-  flex-direction: column;
-}
-#hello {
-  font-size: 40px;
-  font-weight: 800;
-  width: max-content;
-  position: relative;
-}
-#second-section {
-  padding: 20vh 30px;
-  height: 100vh;
-  width: 100vw;
-  display: flex;
-  flex-direction: column;
-  gap: 12vh;
-  overflow: hidden;
-}
-#education {
-  opacity: 0;
-  transition: var(--show-transtion);
-  transform: var(--show-transform);
-}
-.show #education {
-  opacity: 1;
-  transform: scale(1);
-}
-#skills {
-}
-
-.skills-container {
-  display: flex;
-  gap: 8px;
-}
-.skills-container > div:first-child {
-}
-.skills-container > div:last-child {
-  flex-grow: 1;
-  .skills-container {
-    display: flex;
-  }
-}
-
-.skill-label,
-.skill-bar {
-  opacity: 0;
-  transition: var(--show-transtion);
-  transform: var(--show-transform);
-}
-.show .skill-label,
-.show .skill-bar {
-  opacity: 1;
-  transform: scale(1);
-}
-.skill-label:nth-child(1),
-.skill-bar:nth-child(1) {
-  transition-delay: 0ms;
-}
-.skill-label:nth-child(2),
-.skill-bar:nth-child(2) {
-  transition-delay: 100ms;
-}
-.skill-label:nth-child(3),
-.skill-bar:nth-child(3) {
-  transition-delay: 200ms;
-}
-.skill-label:nth-child(4),
-.skill-bar:nth-child(4) {
-  transition-delay: 300ms;
-}
-.skill-label:nth-child(5),
-.skill-bar:nth-child(5) {
-  transition-delay: 400ms;
-}
-.skill-label {
-  height: 24px;
-}
-.skill-bar {
-  background: var(--white);
-  display: flex;
-  height: 20px;
-  margin: 20px 0;
-  border-radius: 3px;
-  overflow: hidden;
-}
-.skill-bar::before {
-  content: "";
-  height: 100%;
-  width: 0;
-  display: inline-block;
-  background: var(--red);
-  transition: 2000ms 100ms;
-}
-
-.show .skill-bar:nth-child(1)::before {
-  width: 97%;
-}
-.show .skill-bar:nth-child(2)::before {
-  width: 95%;
-}
-.show .skill-bar:nth-child(3)::before {
-  width: 85%;
-}
-.show .skill-bar:nth-child(4)::before {
-  width: 70%;
-}
-.show .skill-bar:nth-child(5)::before {
-  width: 78%;
-}
-#skills-background-circle {
-  width: 100vw;
-  height: 100vh;
-  right: 0;
-  overflow: hidden;
-  position: absolute;
-  top: 168vh;
-  transition: var(--show-transtion);
-}
-#skills-background-circle > div {
-  background: var(--white);
-  border-radius: 0vh;
-  width: 0vh;
-  height: 0vh;
-  opacity: 0.04;
-  transform: translate(30vw, 0);
-}
-
-.show #skills-background-circle > div {
-  border-radius: 50vh;
-  width: 80vh;
-  height: 80vh;
-}
-#third-section {
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
-  padding: 25% 0 10%;
-  width: 100vw;
-  position: relative;
-  overflow: hidden;
-}
-.parallel-lines {
-  position: absolute;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  top: 42vh;
-  left: -90px;
-  transform: rotate(45deg);
-  z-index: -1;
-}
-.parallel-lines > div {
-  opacity: 0;
-  width: 300px;
-
-  height: 3px;
-
-  background: var(--red);
-
-  border-radius: 2px;
-  transition: var(--show-transtion);
-}
-
-.show .parallel-lines > div {
-  opacity: 1;
-}
-#services-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  flex-grow: 1;
-  padding: 12vh 0;
-  gap: 16px;
-}
-.service-card {
-  display: flex;
-  background: var(--white);
-  height: 21vh;
-  width: 24vh;
-  border-radius: 4px;
-  flex-direction: column;
-  padding: 5%;
-  justify-content: center;
-  opacity: 0;
-  transition: var(--show-transtion);
-  transform: scale(1.5);
-}
-
-.service-card:last-child {
-  transition-delay: 200ms;
-}
-.show .service-card {
-  opacity: 1;
-  transform: scale(1);
-}
-.srevice-icon {
-  flex-grow: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: auto;
-  pointer-events: none;
-}
-.srevice-icon > svg {
-  width: 15vh;
-  height: 60%;
-  object-fit: contain;
-}
-.service-name {
-  font-size: 20px;
-  flex-shrink: 1;
-  font-weight: 700;
-  text-align: center;
-  color: var(--dark-blue);
-  pointer-events: none;
-}
-
-#fourth-section {
-  --red: #c8143b;
-
-  display: flex;
-
-  flex-direction: column;
-
-  height: 100vh;
-
-  padding: 25% 0 10%;
-
-  position: relative;
-
-  background: #f9f9f9;
-
-  color: var(--dark-blue);
-}
-
-#work-scrolling-area {
-  flex-grow: 1;
-  overflow-y: auto;
-  width: 100%;
-  overflow-x: hidden;
-  scroll-behavior: smooth;
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
-  scrollbar-gutter: stable;
-  transform-style: preserve-3d;
-  perspective: 1000px;
-}
-#work-scrolling-area::-webkit-scrollbar {
-  width: 0px;
-}
-#work-scrolling-area ::-webkit-scrollbar {
-  display: none;
-}
-
-
-#vertical-long {
-  height: 1000vw;
-  transform-style: preserve-3d;
-}
-#works-container {
-  position: sticky;
-  top: 0;
-  display: flex;
-  transition: 100ms ease-out;
-  transform-style: preserve-3d;
-}
-.work-item {
-  width: 100vw;
-  padding: 30px;
-  flex-shrink: 0;
-  transform-style: preserve-3d;
-}
-.work-img {
-  width: 100%;
-  aspect-ratio: 1.6/1;
-  overflow: hidden;
-  background: #eee;
-  border: 15px solid #ffff;
-}
-.work-img > img {
-  height: 100%;
-
-  width: 100%;
-
-  object-fit: contain;
-}
-.work-name {
-  font-size: 24px;
-  font-weight: 700;
-  color: var(--dark-blue);
-  margin: 36px 0;
-}
-#bbg-website{
-  
-}
-#bbg-website>.work-img{box-shadow: 6px 6px 13px rgba(0, 0, 0, 0.1);}
-#bbg-website>.work-name{
-  
-transform: translateZ(50px);
-}
-#udms-system{
-  
-}
-#udms-system>.work-img{
-  
-transform: translateZ(200px) scale(.8);
-  
-box-shadow: 6px 6px 23px rgba(0, 0, 0, 0.1);
-}
-
-#udms-system>.work-name{
-  
-transform: translateZ(100px);
-}
-
-#original-food{
-  
-}
-#original-food>.work-img{
-  
-transform: translateZ(0px) scale(1);
-  
-box-shadow: 6px 6px 16px rgba(0, 0, 0, 0.1);
-}
-
-
-#original-food>.work-name{
-  
-transform: translateZ(200px) scale(.8);
-}
-
-#barq-store{
-  
-}
-
-#barq-store>.work-img{
-  
-transform: translateZ(300px) scale(.7);
-  
-box-shadow: 6px 6px 30px rgba(0, 0, 0, 0.1);
-}
-
-#barq-store>.work-name{
-  
-transform: translateZ(100px) scale(1);
-}
-
-#barq-mangement{
-  
-}
-
-#barq-mangement>.work-img{
-  transform: translateZ(100px) scale(.8);
-  box-shadow: 6px 6px 15px rgba(0, 0, 0, 0.1);
-}
-
-#barq-mangement>.work-name{
-  transform: translateZ(200px) scale(.8);
-}
-
-#fifth-section {
-  --red: #c8143b;
-
-  display: flex;
-
-  flex-direction: column;
-
-  height: 100vh;
-
-  width: 100vw;
-
-  padding: 25% 0 10%;
-
-  position: relative;
-
-  background: var(--light-white);
-
-  color: var(--dark-blue);
-
-  overflow: hidden;
-}
-#contact-actions-container {
-  flex-grow: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-#contact-me-form {
-  display: flex;
-
-  flex-direction: column;
-
-  padding: 30px 30px;
-}
-
-#contact-me-form > * {
-  margin: 8px;
-  /* padding: 8px 16px; */
-  border: none;
-  /* border-bottom: 3px solid var(--red); */
-  /* font-size:20px; */
-  height: 50px;
-  /* outline: none; */
-}
-#contact-actions-container > * > * {
-  opacity: 0;
-  transition: var(--show-transtion);
-  transform: var(--show-transform);
-}
-#contact-me-form > *::after {
-  content: "";
-  height: 3px;
-  display: block;
-  width: 100%;
-  background: var(--red);
-  border-radius: 3px;
-}
-
-#contact-me-form > * > * {
-  font-size: 20px;
-  height: 100%;
-  padding: 16px;
-  border: none;
-  background: transparent;
-  line-height: 20px;
-  width: 100%;
-  outline: none;
-}
-.show #contact-actions-container > * > * {
-  opacity: 1;
-  transform: scale(1);
-}
-#name-form {
-  transition-delay: 0ms;
-}
-#name-form-input {
-}
-#email-form {
-  transition-delay: 100ms;
-}
-
-#email-form-input {
-}
-#message-form {
-  transition-delay: 200ms;
-
-  margin-top: 19px;
-
-  min-height: 50px;
-}
-#message-form-input {
-  overflow: hidden;
-}
-#submit-btn {
-  background: var(--red);
-  border-radius: 4px;
-  color: var(--white);
-  text-align: center;
-  padding: 16px 0;
-  height: auto;
-  font-size: 20px;
-  line-height: 20px;
-  margin-top: 42px;
-  transition: 500ms;
-  border: 3px solid transparent;
-}
-#submit-btn::after{
-  display:none;
-}
-#submit-btn:active {
-  transform: scale(0.9);
-}
-footer {
-  position: absolute;
-
-  bottom: 0;
-
-  background: var(--dark-blue);
-
-  color: var(--white);
-
-  width: 100%;
-
-  padding: 8px 12vw;
-}
-#social-media-icons-container {
-  display: flex;
-
-  gap: 16px;
-
-  justify-content: center;
-
-  width: 100%;
-
-  margin-bottom: 30px;
-}
-.social-icon {
-  --white: #0c0e25d4;
-  height: 48px;
-  width: 48px;
-  background: var(--light-white);
-  padding: 12px;
-  border-radius: 4px;
-  box-shadow: 2px 2px 20px #00000021;
-}
-a#a-links {
-  display: none;
-}
-/* ÃƒËœÃ‚Â­ÃƒËœÃ‚Â±Ãƒâ„¢Ã†â€™ÃƒËœÃ‚Â§ÃƒËœÃ‚Âª */
-
-/*media query/                 */
-
-@media (min-width: 950px) {
-  html {
-    display: flex;
-    width: 100vw;
-    overflow: hidden;
-  }
-  #text-container-preload {
-    font-size: 36px;
-  }
-
-  #nooh-text-preload.reset-width {
-    width: 150px;
-  }
-  #menu-btn {
-    right: 10vh;
-
-    top: 8vh;
-  }
-  #contact-btn {
-    right: 16vh;
-
-    bottom: 20vh;
-  }
-  #side-developer-text {
-    left: -7vh;
-    top: 17vh;
-    letter-spacing: 4vh;
-    font-size: 20px;
-  }
-
-  #side-line-with-num {
-    right: 5vh;
-  }
-  #name-with-img {
-  }
-  #my-photo-container {
-    width: 300px;
-    height: 465px;
-    border-radius: 0 0 200px 200px;
-  }
-  #my-info {
-    width: fit-content;
-    margin-top: 16vh;
-  }
-  #my-name {
-    text-align: start;
-  }
-  #job-title {
-    margin-top: 1vh;
-    padding-left: 8px;
-  }
-  #itroducting-my-self {
-  padding: 0;
-  }
-  #education {
-    width: 40vw;
-  }
-  #skills {
-  width: 30vw;
-  margin-left: auto;
-  margin-right: 8vw;
-  }
-  #sections-container > div {
-  }
-  #first-section{
-  flex-direction: row-reverse;
-  padding: 0 12vw;
-  align-items: center;
-  }
-  #first-section>div:last-child{
-  display: flex;
-  flex-direction: column;
-  gap: 12vh;
-  padding: 0 0 0 12vh;
-  }
-  #second-section {
-    max-width: 1200px;
-    margin: auto;
-  }
-  .parallel-lines {
-    gap: 95px;
-    left: -358px;
-    top: 47vh;
-  }
-  .parallel-lines > div {
-    width: 130vh;
-  }
-
-  #third-section {
-    padding: 10vh 0 12vh;
-  }
-  #services-container {
-    flex-direction: row;
-    justify-content: center;
-    max-width: 1200px;
-    margin: auto;
-    gap: 4vw;
-  }
-.service-card-container{
-    width: 40vh;
-    height: 40vh;
-}.srevice-icon{
-  transform: translateZ(70px) scale(.3) translateY(18px);
-}
-  
-  
-  .service-name{
-  transform: translateZ(60px) scale(.4) translateY(-214px);
-}.rotate-3d{
-    perspective: 1000px;
-}
-  .service-card {
-    transform-style: preserve-3d;
-    perspective: 100px;
-    width: 300px;
-    height: 300px;
-  }
-
-  #fourth-section {
-    padding: 10vh 0 0;
-  }
-
-  .work-item {
-    width: 56vh;
-    margin: 0 12vw;
-  }
-
-  #fifth-section {
-    padding: 10vh 0 12vh;
-  }
-  #contact-actions-container {
-    flex-direction: row;
-    margin: 0 12vw;
-  }
-  #contact-me-form {
-    width: 763px;
-  }
-  #submit-btn {
-    width: 60%;
-    margin-top: 7vh;
-  }
-#submit-btn:hover{
-  background: var(--white);
-  border: 3px solid var(--red);
-  color: var(--red);
-}
-  #social-media-icons-container {
-    flex-direction: column;
-    align-items: end;
-    justify-content: start;
-  }
-  .social-icon {
-    height: 100px;
-    width: 100px;
-    padding: 33px;
-    border-radius: 8px;
-    box-shadow: 6px 6px 20px #00000011, -2px -2px 4px #00000005;
-  }
-}
-
-/*media query/                 */
-
-@keyframes floating-from-side-to-side {
-  1% {
-    transform: translate(0, -87px);
-  }
-  100% {
-    transform: translate(-1550px, -87px);
-  }
-}
-
-/* ÃƒËœÃ‚Â­ÃƒËœÃ‚Â±Ãƒâ„¢Ã†â€™ÃƒËœÃ‚Â§ÃƒËœÃ‚Âª */
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta property="og:title" content="NOOH Portfolio" />
+    <meta property="og:description" content="My works & Me" />
+    <meta 
+      property="og:image"
+      content="https://raw.githubusercontent.com/Noohaljabri1998/Noohaljabri1998.github.io/main/media-requst.png"
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://noohaljabri1998.gitnub.io" />
+    <meta name="author" content="Nooh Aljabri" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Nooh Portfolio</title>
+  </head>
+  <body>
+    <div id="preload-page">
+      <div id="white-loaded-in-preloading-page"></div>
+      <div id="black-loading-progress-num">1%</div>
+      <div id="white-loading-progress-num">1%</div>
+      <div id="container-of-tow-white-divs">
+        <div id="right-side-split"></div>
+        <div id="left-side-split"></div>
+      </div>
+      <div id="red-line-go-down"></div>
+      <div id="text-container-preload">
+        <div class="symbol">&lt;/</div>
+        <div id="nooh-text-preload">
+          <div>N</div>
+          <div>O</div>
+          <div>O</div>
+          <div>H</div>
+        </div>
+        <div class="symbol">></div>
+      </div>
+    </div>
+    <div id="menu-btn">
+      <svg
+        width="32"
+        height="32"
+        viewBox="0 0 32 32"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          fill-rule="evenodd"
+          clip-rule="evenodd"
+          d="M27.4286 0H22.8571C20.3326 0 18.2857 2.04686 18.2857 4.57143V9.14286C18.2857 11.6674 20.3326 13.7143 22.8571 13.7143H27.4286C29.9531 13.7143 32 11.6674 32 9.14286V4.57143C32 2.04686 29.9531 0 27.4286 0ZM27.4286 18.2857H22.8571C20.3326 18.2857 18.2857 20.3326 18.2857 22.8571V27.4286C18.2857 29.9531 20.3326 32 22.8571 32H27.4286C29.9531 32 32 29.9531 32 27.4286V22.8571C32 20.3326 29.9531 18.2857 27.4286 18.2857ZM9.14286 18.2857H4.57143C2.04686 18.2857 0 20.3326 0 22.8571V27.4286C0 29.9531 2.04686 32 4.57143 32H9.14286C11.6674 32 13.7143 29.9531 13.7143 27.4286V22.8571C13.7143 20.3326 11.6674 18.2857 9.14286 18.2857ZM9.14286 0H4.57143C2.04686 0 0 2.04686 0 4.57143V9.14286C0 11.6674 2.04686 13.7143 4.57143 13.7143H9.14286C11.6674 13.7143 13.7143 11.6674 13.7143 9.14286V4.57143C13.7143 2.04686 11.6674 0 9.14286 0Z"
+          fill="var(--red)"
+        />
+      </svg>
+      <svg
+        width="24"
+        height="25"
+        viewBox="0 0 24 25"
+        fill="var(--white)"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M23.6096 0.590661C23.089 0.0700401 22.2448 0.0700401 21.7243 0.590661L12 10.3149L2.27577 0.590661C1.75516 0.0700401 0.911075 0.0700401 0.390466 0.590661C-0.130155 1.11127 -0.130155 1.95536 0.390466 2.47596L10.1147 12.2002L0.390493 21.9243C-0.130129 22.445 -0.130129 23.289 0.390493 23.8098C0.911102 24.3303 1.75519 24.3303 2.2758 23.8098L12 14.0855L21.7243 23.8098C22.2448 24.3303 23.089 24.3303 23.6096 23.8098C24.1301 23.289 24.1301 22.445 23.6096 21.9245L13.8853 12.2002L23.6096 2.47596C24.1301 1.95536 24.1301 1.11127 23.6096 0.590661Z"
+          fill="#000"
+        />
+      </svg>
+    </div>
+    <div id="menu-list">
+      <div
+        class="menu-item"
+        onclick="goTo('inPage','first-section')"
+        style="transition-delay: 80ms"
+      >
+        Home
+      </div>
+      <div
+        class="menu-item"
+        onclick="goTo('inPage','second-section')"
+        style="transition-delay: 130ms"
+      >
+        Education &amp; Skills
+      </div>
+      <div
+        class="menu-item"
+        onclick="goTo('inPage','third-section')"
+        style="transition-delay: 90ms"
+      >
+        Services
+      </div>
+      <div
+        class="menu-item"
+        onclick="goTo('inPage','fourth-section')"
+        style="transition-delay: 110ms"
+      >
+        My Works
+      </div>
+      <div
+        class="menu-item"
+        onclick="goTo('inPage','fifth-section')"
+        style="transition-delay: 140ms"
+      >
+        Contact Me
+      </div>
+    </div>
+    <div id="contact-btn">
+      <div id="whatsapp-btn" onclick="goTo('whatsapp')">
+        <svg
+          width="32"
+          height="32"
+          viewBox="0 0 32 32"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <g clip-path="url(#clip0_889_2496)">
+            <path
+              d="M32 15.5884C32 24.197 24.967 31.1757 16.2896 31.1757C13.5359 31.1757 10.9491 30.4713 8.6973 29.2379L0 32L2.8351 23.6345C1.40555 21.2867 0.582255 18.5299 0.582255 15.5873C0.583298 6.97871 7.61418 0 16.2916 0C24.9681 0.00208693 32 6.97975 32 15.5884ZM16.2885 2.48554C9.00616 2.48554 3.0824 8.36443 3.0824 15.5915C3.0824 18.4589 4.01735 21.1135 5.5982 23.2735L3.94952 28.1392L9.02286 26.527C11.1098 27.896 13.6068 28.6933 16.2885 28.6933C23.5709 28.6933 29.4967 22.8154 29.4967 15.5884C29.4988 8.36443 23.5719 2.48554 16.2885 2.48554ZM24.223 19.1789C24.125 19.0214 23.8683 18.9254 23.4843 18.7334C23.1013 18.5414 21.2053 17.6179 20.8537 17.4927C20.4989 17.3643 20.2422 17.2996 19.9855 17.6826C19.732 18.0655 18.9932 18.9254 18.7668 19.1821C18.5424 19.4377 18.3181 19.4701 17.933 19.2812C17.548 19.0871 16.3063 18.6864 14.835 17.3852C13.6903 16.371 12.9171 15.1219 12.6938 14.739C12.4673 14.3571 12.6708 14.1505 12.8618 13.9605C13.0339 13.7884 13.2468 13.5139 13.4399 13.2896C13.6329 13.0673 13.6965 12.9098 13.8249 12.6541C13.9512 12.3985 13.8875 12.1762 13.7925 11.9832C13.6965 11.7912 12.9275 9.91294 12.6051 9.14807C12.2847 8.38426 11.9644 8.51052 11.739 8.51052C11.5147 8.51052 11.258 8.47921 11.0013 8.47921C10.7446 8.47921 10.3272 8.57208 9.97554 8.95503C9.6239 9.33799 8.62843 10.2615 8.62843 12.1418C8.62843 14.0242 10.0068 15.8388 10.1999 16.0934C10.394 16.347 12.8649 20.332 16.7789 21.8617C20.6951 23.3904 20.6951 22.8801 21.4005 22.8154C22.1079 22.7507 23.6794 21.8919 23.9987 21.0008C24.3201 20.1055 24.3201 19.3386 24.223 19.1789Z"
+              fill="white"
+            />
+          </g>
+          <defs>
+            <clipPath id="clip0_889_2496">
+              <rect width="32" height="32" fill="white" />
+            </clipPath>
+          </defs>
+        </svg>
+      </div>
+      <div id="linkedin-btn" onclick="goTo('linkedin')">
+        <svg
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M2.88459 0C1.29052 0 0.000257898 1.29481 0 2.88801C0 4.48275 1.29026 5.77731 2.88485 5.77731C4.47505 5.77731 5.76712 4.48275 5.76712 2.88801C5.76712 1.29455 4.47479 0 2.88459 0Z"
+            fill="white"
+          />
+          <path
+            d="M5.37074 7.96875H0.39666V23.9999H5.37074V7.96875Z"
+            fill="white"
+          />
+          <path
+            d="M18.0335 7.57031C15.6139 7.57031 13.9915 8.89923 13.3274 10.1594H13.2609V7.96894H8.49026H8.49001V23.9999H13.4597V16.0693C13.4597 13.9785 13.8571 11.9533 16.4449 11.9533C18.9955 11.9533 19.0295 14.3446 19.0295 16.2033V23.9996H24V15.2067C24 10.8905 23.0703 7.57031 18.0335 7.57031Z"
+            fill="var(--white)"
+          />
+        </svg>
+      </div>
+      <div id="copy-link-btn" onclick="goTo('copy')">
+        <svg
+          width="26"
+          height="26"
+          viewBox="0 0 26 26"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M11.5904 16.4125C11.722 16.2808 11.8265 16.1245 11.8977 15.9525C11.969 15.7805 12.0057 15.5962 12.0057 15.41C12.0057 15.2238 11.969 15.0395 11.8977 14.8675C11.8265 14.6954 11.722 14.5392 11.5904 14.4075C11.2205 14.0377 10.9271 13.5986 10.7269 13.1154C10.5267 12.6321 10.4237 12.1142 10.4237 11.5911C10.4237 11.0681 10.5267 10.5501 10.7269 10.0669C10.9271 9.58367 11.2205 9.1446 11.5904 8.77475L16.3647 4.00202C16.7346 3.63216 17.1737 3.33878 17.6569 3.13862C18.1402 2.93845 18.6582 2.83543 19.1812 2.83543C19.7043 2.83543 20.2223 2.93845 20.7055 3.13862C21.1888 3.33878 21.6279 3.63216 21.9978 4.00202C22.3676 4.37187 22.661 4.81095 22.8612 5.29418C23.0614 5.77742 23.1644 6.29535 23.1644 6.8184C23.1644 7.34145 23.0614 7.85938 22.8612 8.34262C22.661 8.82585 22.3676 9.26493 21.9978 9.63478L20.522 11.1091C20.3903 11.2408 20.2859 11.3971 20.2147 11.5691C20.1434 11.7411 20.1067 11.9254 20.1067 12.1116C20.1067 12.2978 20.1434 12.4821 20.2147 12.6541C20.2859 12.8262 20.3903 12.9824 20.522 13.1141C20.7879 13.38 21.1485 13.5293 21.5245 13.5293C21.7107 13.5293 21.8951 13.4927 22.0671 13.4214C22.2391 13.3502 22.3954 13.2457 22.5271 13.1141L24.0028 11.6397C25.2816 10.361 26 8.62675 26 6.8184C26 5.01005 25.2816 3.27576 24.0028 1.99706C22.7241 0.718365 20.9897 0 19.1812 0C17.3728 0 15.6384 0.718365 14.3597 1.99706L9.58533 6.76979C8.95212 7.40293 8.44983 8.15458 8.10714 8.98183C7.76445 9.80907 7.58807 10.6957 7.58807 11.5911C7.58807 12.4865 7.76445 13.3732 8.10714 14.2004C8.44983 15.0277 8.95212 15.7793 9.58533 16.4125C10.1389 16.966 11.0368 16.966 11.5904 16.4125ZM14.3583 9.63478C14.2266 9.76643 14.1222 9.92271 14.0509 10.0947C13.9797 10.2667 13.943 10.4511 13.943 10.6373C13.943 10.8234 13.9797 11.0078 14.0509 11.1798C14.1222 11.3518 14.2266 11.5081 14.3583 11.6397C14.7282 12.0096 15.0216 12.4487 15.2218 12.9319C15.4219 13.4151 15.525 13.9331 15.525 14.4561C15.525 14.9792 15.4219 15.4971 15.2218 15.9803C15.0216 16.4636 14.7282 16.9027 14.3583 17.2725L9.63258 21.998C9.26467 22.3765 8.82518 22.6781 8.33966 22.8853C7.85413 23.0925 7.33227 23.2011 6.8044 23.2048C6.27654 23.2086 5.75319 23.1073 5.26479 22.907C4.7764 22.7067 4.33269 22.4113 3.95947 22.038C3.58624 21.6647 3.29095 21.221 3.09075 20.7326C2.89055 20.2441 2.78943 19.7208 2.79329 19.193C2.79714 18.6651 2.90588 18.1433 3.11319 17.6579C3.3205 17.1724 3.62224 16.733 4.00087 16.3652L5.38484 14.9813C5.65072 14.7155 5.8001 14.3549 5.8001 13.9788C5.8001 13.6028 5.65072 13.2422 5.38484 12.9764C5.11895 12.7105 4.75833 12.5611 4.38231 12.5611C4.00629 12.5611 3.64567 12.7105 3.37978 12.9764L1.99717 14.3603C0.718402 15.639 0 17.3732 0 19.1816C0 20.99 0.718402 22.7242 1.99717 24.0029C3.27593 25.2816 5.01031 26 6.81875 26C8.6272 26 10.3616 25.2816 11.6403 24.0029L16.3661 19.2775C16.9993 18.6443 17.5016 17.8927 17.8442 17.0654C18.1869 16.2382 18.3633 15.3515 18.3633 14.4561C18.3633 13.5607 18.1869 12.6741 17.8442 11.8468C17.5016 11.0196 16.9993 10.2679 16.3661 9.63478C16.2344 9.50313 16.0781 9.39869 15.9061 9.32744C15.7341 9.25619 15.5497 9.21952 15.3635 9.21952C15.1773 9.21952 14.993 9.25619 14.821 9.32744C14.649 9.39869 14.4927 9.50313 14.361 9.63478H14.3583Z"
+            fill="var(--white)"
+          />
+        </svg>
+      </div>
+
+      <div id="send-btn">
+        <svg
+          id="send-icon"
+          width="28"
+          height="30"
+          viewBox="0 0 28 30"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M13.9926 25.8721V15.7382M15.3377 26.1593L20.4208 27.8398C23.1891 28.7551 24.5732 29.2127 25.4267 28.8843C26.1679 28.5992 26.7303 27.9865 26.9449 27.23C27.1921 26.3588 26.5953 25.0434 25.4016 22.4123L17.7372 5.51876C16.5698 2.94579 15.9862 1.65931 15.1732 1.26069C14.4667 0.91436 13.6373 0.913044 12.9298 1.25712C12.1154 1.65317 11.5276 2.93781 10.3519 5.50704L2.61387 22.4171C1.41075 25.0462 0.809184 26.361 1.0538 27.233C1.26624 27.9903 1.82693 28.6048 2.56756 28.8921C3.4204 29.223 4.80675 28.7685 7.57947 27.8597L12.7766 26.156C13.2519 26.0002 13.4896 25.9222 13.7328 25.8916C13.9484 25.8642 14.1667 25.8646 14.3824 25.8924C14.6253 25.9237 14.8629 26.0022 15.3377 26.1593Z"
+            stroke="var(--white)"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+        <svg
+          id="close-icon"
+          width="24"
+          height="25"
+          viewBox="0 0 24 25"
+          fill="var(--white)"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M23.6096 0.590661C23.089 0.0700401 22.2448 0.0700401 21.7243 0.590661L12 10.3149L2.27577 0.590661C1.75516 0.0700401 0.911075 0.0700401 0.390466 0.590661C-0.130155 1.11127 -0.130155 1.95536 0.390466 2.47596L10.1147 12.2002L0.390493 21.9243C-0.130129 22.445 -0.130129 23.289 0.390493 23.8098C0.911102 24.3303 1.75519 24.3303 2.2758 23.8098L12 14.0855L21.7243 23.8098C22.2448 24.3303 23.089 24.3303 23.6096 23.8098C24.1301 23.289 24.1301 22.445 23.6096 21.9245L13.8853 12.2002L23.6096 2.47596C24.1301 1.95536 24.1301 1.11127 23.6096 0.590661Z"
+            fill="#000"
+          />
+        </svg>
+      </div>
+    </div>
+    <div class="menu-list"></div>
+    <div id="sections-container">
+      <div id="first-section">
+        <div id="float-developer-background-text"><div>DEVELOPER</div></div>
+        <div id="side-developer-text">DEVELOPER</div>
+        <div id="side-line-with-num">
+          <div></div>
+          <div>1</div>
+          <div></div>
+        </div>
+        <div id="name-with-img">
+          <div id="my-photo-container">
+            <img src="img/personal-photo4.png" alt="" srcset="" />
+            <svg
+              id="curve-arrow"
+              width="204"
+              height="103"
+              viewBox="0 0 204 103"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M204.061 0.43934C203.475 -0.146447 202.525 -0.146447 201.939 0.43934L192.393 9.98528C191.808 10.5711 191.808 11.5208 192.393 12.1066C192.979 12.6924 193.929 12.6924 194.515 12.1066L203 3.62132L211.485 12.1066C212.071 12.6924 213.021 12.6924 213.607 12.1066C214.192 11.5208 214.192 10.5711 213.607 9.98528L204.061 0.43934ZM1.5 1.5C1.5 0.671573 0.828427 0 0 0C-0.828427 0 -1.5 0.671573 -1.5 1.5H1.5ZM201.5 1.5C201.5 56.7285 156.728 101.5 101.5 101.5V104.5C158.385 104.5 204.5 58.3853 204.5 1.5H201.5ZM101.5 101.5C46.2715 101.5 1.5 56.7285 1.5 1.5H-1.5C-1.5 58.3853 44.6147 104.5 101.5 104.5V101.5Z"
+                fill="#970726"
+              />
+            </svg>
+          </div>
+          <div id="my-info">
+          <div id="my-name" class="h1">Nooh Al-jabri</div>
+          <div id="job-title">
+            <div id="static-job-title">I Design & Develop</div>
+            <div id="toggle-job-title">
+              <div class="son center">Websites</div>
+              <div class="son top">Mobile Apps</div>
+              <div class="son" style="visibility: hidden; position: relative">
+                Mobile Apps
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+        <div id="itroducting-my-self">
+          <div id="hello" class="title-with-red-square">Hello!</div>
+          <div class="p red-line-infront-of-p">
+            My name is Nooh Al-jabri and I am a web developer with a passion for
+            building beautiful and user-friendly websites. my skills deliver the
+            best possible results for my clients.
+          </div>
+        </div>
+      </div>
+      <div id="second-section">
+        <div id="skills-background-circle"><div></div></div>
+        <div id="education">
+          <div class="title-with-red-square">Education</div>
+          <div class="p red-line-infront-of-p">
+            Bachelor's degree in Computer Engineering <br />Web Development
+            Bootcamp
+          </div>
+        </div>
+        <div id="skills">
+          <div class="title-with-red-square">Skills</div>
+          <div class="skills-container">
+            <div>
+              <div class="skill-label p">HTML</div>
+              <div class="skill-label p">CSS</div>
+              <div class="skill-label p">JavaScript</div>
+              <div class="skill-label p">PHP</div>
+              <div class="skill-label p">SQL</div>
+            </div>
+            <div>
+              <div class="skill-bar"></div>
+              <div class="skill-bar"></div>
+              <div class="skill-bar"></div>
+              <div class="skill-bar"></div>
+              <div class="skill-bar"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="third-section">
+        <div class="parallel-lines">
+          <div style="transform: translate(-48px, 0)"></div>
+          <div style="transform: translate(-40px, 0)"></div>
+          <div style="transform: translate(-32px, 0)"></div>
+          <div style="transform: translate(-24px, 0)"></div>
+          <div style="transform: translate(-16px, 0)"></div>
+          <div style="transform: translate(-8px, 0)"></div>
+        </div>
+        <div class="title-with-red-square-before">My Services</div>
+        <div id="services-container">
+          
+          <div class="rotate-3d">
+          <div class="service-card">
+            <div class="srevice-icon">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 323.98 335.54"
+              >
+                <g id="Layer_2" data-name="Layer 2">
+                  <g id="Layer_1-2" data-name="Layer 1">
+                    <path
+                      d="M114.89,260.05H101.52c-23.59,0-47.18.07-70.76,0-15.89-.06-27.24-9.48-30-24.72a27,27,0,0,1-.33-4.84q0-53.16,0-106.31c0-2.79.45-5.23,3-6.79a5.92,5.92,0,0,1,9,4.42,35.37,35.37,0,0,1,.1,4.12q0,51.65,0,103.31c0,9.6,4.89,16.25,13.39,18.27a19.4,19.4,0,0,0,4.45.37q132,0,263.94,0c10.4,0,17.63-7.22,17.64-17.64q0-68.5,0-137c0-9.93-7.19-17.44-17.12-17.49-23.58-.14-47.17,0-70.76,0a13.22,13.22,0,0,0-1.57.2c-1.25,2.93-.45,5.05,2.24,6.57s5.43,3.06,8.09,4.68c6.43,3.92,8.29,10.54,4.63,17.06q-7.32,13-15,25.89c-3.78,6.38-10.57,8.15-17.08,4.6-2.85-1.55-5.56-3.36-8.44-4.83-3.9-2-7-.1-7.17,4.24-.09,3.24.05,6.49,0,9.73-.19,7.11-5.14,12.34-12.27,12.48-10.1.2-20.22.18-30.32,0-7.16-.12-12-5.09-12.38-12.36-.17-3.24,0-6.49-.09-9.73-.19-4.68-3.22-6.43-7.37-4.25-2.75,1.44-5.38,3.13-8.11,4.63-6.59,3.62-13.3,2-17.12-4.44q-7.73-13-15.14-26.21c-3.55-6.35-1.65-12.91,4.63-16.75,2.77-1.68,5.61-3.24,8.41-4.88,2.53-1.48,3.26-3.57,2-6.66H98.36q-33.33,0-66.64,0c-12.34,0-19.23,6.88-19.29,19.21,0,1.37,0,2.75-.09,4.11-.3,3.41-2.46,5.21-5.63,5.4a5.57,5.57,0,0,1-6.2-4.84C-3,79,12.41,63.93,28.85,63.71c17.59-.22,35.19-.05,52.79-.05h4.59c-2.67-6.21.24-11,3.13-15.85,4.14-7,8.08-14,12.16-21,4.27-7.31,10.78-9.08,18.09-5,2.61,1.47,5.13,3.08,7.78,4.46,3.89,2,7,.21,7.23-4.15.15-3,0-6,.06-9C134.88,4.63,139.59,0,148.05,0c9.73,0,19.47,0,29.2,0,7.14,0,12.21,5,12.44,12.16.1,3.24,0,6.49,0,9.73.11,4.53,3.32,6.42,7.37,4.3,2.87-1.51,5.6-3.27,8.45-4.81,6.43-3.46,13-1.75,16.78,4.57,5.1,8.56,10.29,17.09,14.84,25.94,1.68,3.28,1.66,7.44,2.42,11.19l-1,.56h4.06c17.35,0,34.69,0,52,0,16.18,0,29.06,12.2,29.13,28.37q.33,69.61,0,139.24c-.07,16.94-12.7,28.69-30.28,28.75-26.33.1-52.66,0-79,0h-5c1.39,6.08,2.64,11.62,3.9,17.15,1.57,6.91,3.26,13.8,4.66,20.75.45,2.21,1.41,2.83,3.51,2.8,5-.06,10-.15,15,.18a17.26,17.26,0,0,1-1.2,34.46q-50,.08-100,0c-4.37,0-7-2.34-7-6s2.65-5.93,7.07-5.93q48.3,0,96.6,0a16.52,16.52,0,0,0,4.77-.53c2.66-.82,4-3.1,3.13-5.53-.66-1.75-2.65-3.16-4.33-4.33-.76-.53-2.18-.13-3.3-.13H92c-.75,0-1.5,0-2.25,0-3.55.16-5.56,2-5.58,5.17s2.11,5.24,5.54,5.31c6.74.13,13.49-.17,20.21.18a8.28,8.28,0,0,1,5.53,2.9c2.69,3.62-.12,8.77-4.74,8.87-7.86.18-15.75.36-23.58-.07C78.71,334.81,72,326.83,72,318.11s6.53-16.45,15.07-17.1c5.22-.4,10.48-.1,15.71-.38,1.1-.06,2.89-1.08,3.11-2C109,286,111.85,273.3,114.89,260.05ZM227,58.27c-4.88-8.45-9.54-16.53-14.22-24.6-.3-.52-.68-1-1.19-1.72-2.58,1.47-5.13,2.75-7.49,4.32-11.93,8-27.52-.41-26.67-15.34.17-2.91,0-5.85,0-8.94h-28.7a17.13,17.13,0,0,0-1.77.24c0,3.32.07,6.53,0,9.73-.33,13.78-13.74,21.42-25.82,14.75-2.8-1.54-5.57-3.12-8.56-4.81-5.14,8.91-10.09,17.5-15.2,26.38,2.8,1.63,5.37,3.1,7.92,4.61,12.79,7.54,12.76,22.87-.06,30.44-2.54,1.5-5.12,2.94-7.9,4.55l15.32,26.44c3-1.76,5.69-3.37,8.42-4.86,12.32-6.74,25.62,1,25.89,15,.06,3.08,0,6.16,0,9.27h30.48c0-3.39-.1-6.5,0-9.59.48-14,13.56-21.42,25.76-14.69,2.81,1.55,5.58,3.18,8.54,4.86,5.14-9,10.13-17.65,15.19-26.49-3.28-1.88-6.12-3.42-8.87-5.11-11.25-6.9-11.34-22.07-.18-29.09C220.76,61.84,223.69,60.21,227,58.27ZM206.25,300.5c-3.1-13.55-6.13-26.82-9.13-40a4.94,4.94,0,0,0-1-.29c-22.19,0-44.38-.09-66.56,0-.94,0-2.45,1.47-2.7,2.51-2.39,9.77-4.58,19.59-6.81,29.4-.61,2.7-1.15,5.42-1.77,8.31Z"
+                    />
+                    <path
+                      d="M114.88,199.48c6.16,6.13,12.17,11.94,17.92,18,1.35,1.41,2.63,3.68,2.52,5.46s-1.72,4.27-3.26,4.83c-1.87.68-5.13.49-6.46-.76-8.11-7.57-15.9-15.49-23.64-23.44-2.37-2.44-2.17-5.9.31-8.43q11.27-11.48,22.75-22.75a6.07,6.07,0,0,1,8.73-.2c2.51,2.52,2.45,6.06-.43,9C127.28,187.26,121.14,193.27,114.88,199.48Z"
+                    />
+                    <path
+                      d="M209.41,199.53c-6-5.95-11.8-11.73-17.57-17.58a9.78,9.78,0,0,1-2.57-3.58,5.57,5.57,0,0,1,2.34-6.87c2.47-1.55,5.15-1.58,7.24.46q11.91,11.63,23.55,23.52c2.6,2.67,2.32,5.77-.5,8.64q-11.15,11.32-22.48,22.48a6,6,0,0,1-8.7.28c-2.5-2.44-2.49-6.14.29-9C197,211.78,203.17,205.76,209.41,199.53Z"
+                    />
+                    <path
+                      d="M155.4,228.55c-6.09,0-8.61-4-6.92-8.76,4.09-11.6,8.3-23.16,12.47-34.73,1.22-3.39,2.35-6.81,3.68-10.16,1.47-3.74,4.7-5.27,8.07-4,3,1.12,4.64,4.5,3.36,8.09-5.41,15.23-10.85,30.45-16.57,45.55C158.75,226.47,156.26,227.74,155.4,228.55Z"
+                    />
+                    <path
+                      d="M132.11,78a30.13,30.13,0,1,1,60.25.13A30.13,30.13,0,1,1,132.11,78ZM162,96a17.92,17.92,0,0,0,18-17.65c.15-9.82-8.18-18.35-17.89-18.32a18.25,18.25,0,0,0-17.84,18A17.93,17.93,0,0,0,162,96Z"
+                    />
+                  </g>
+                </g>
+              </svg>
+            </div>
+            <div class="service-name">Web Design</div>
+          </div>
+        </div>
+          <div class="rotate-3d">
+          <div class="service-card">
+            <div class="srevice-icon">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 284.69 335.47"
+              >
+                <g id="Layer_2" data-name="Layer 2">
+                  <g id="Layer_1-2" data-name="Layer 1">
+                    <path
+                      d="M210.38,236.61c-2.42,0-4.41,0-6.4,0-7.17,0-11.88-4.65-12.08-11.87-.07-2.49,0-5,0-7.49-.1-4.19-2-5.28-5.79-3.25-2.3,1.23-4.51,2.65-6.82,3.87-5.91,3.12-12.17,1.56-15.59-4.13q-6.93-11.53-13.44-23.3c-3.08-5.57-1.22-11.86,4.24-15.25,2.44-1.51,5-2.79,7.41-4.36,2.92-1.91,2.93-4.25,0-6.17-2.28-1.5-4.74-2.74-7.08-4.16-5.87-3.56-7.71-9.85-4.41-15.77q6.47-11.58,13.26-23c3.41-5.69,9.67-7.26,15.58-4.15,2.31,1.22,4.52,2.63,6.82,3.87q5.66,3,5.81-3.25c.06-2.49,0-5,0-7.48.2-7.23,4.91-11.83,12.07-11.88,2,0,4,0,6.56,0v-3.7q0-29,0-58c0-14.92-10.16-25-25.14-25.14-4.86,0-9.74.17-14.59-.07-2.62-.13-3.72.85-4.57,3.19-1.78,4.9-3.89,9.69-5.85,14.53-4.14,10.23-11.91,15.61-22.76,15.79q-26.21.45-52.41,0c-10.88-.17-18.62-5.6-22.83-15.75-2.1-5.05-4-10.17-6.19-15.21-.41-1-1.46-2.37-2.23-2.37-7.22,0-14.54-.49-21.64.5C20.18,14.32,12.35,24,12.06,36.26c-.07,2.87,0,5.74,0,8.61C12,48.81,9.4,51.57,6,51.51S.12,48.77.08,45.07C0,36.6-.54,28.08,3.66,20.22,10.53,7.36,21.12.14,35.78.1,86.19-.06,136.6,0,187,.05c18.9,0,34.78,14.59,35.4,33.48.66,20.19.27,40.41.34,60.62v4.71c2.79,0,5.14,0,7.49,0a10.88,10.88,0,0,1,11,10.45c.19,3,0,6,.12,9,.14,3.89,2.24,5.15,5.67,3.35,2.53-1.33,4.94-2.9,7.48-4.22,5.59-2.89,11.77-1.35,15,4q7.05,11.67,13.63,23.62c3.05,5.55,1.37,11.58-3.91,15-2.51,1.63-5.21,3-7.71,4.57-2.88,1.87-2.86,4.27.05,6.16,2.4,1.55,5,2.84,7.39,4.37,5.54,3.53,7.29,9.53,4.15,15.24q-6.57,12-13.63,23.63c-3.23,5.34-9.43,6.82-15,3.93-2.54-1.32-4.94-2.9-7.48-4.22-3.26-1.69-5.39-.52-5.59,3.12-.15,2.73,0,5.49-.07,8.23-.25,7.17-4.72,11.43-12,11.47-2,0-4,0-6.63,0v4.44c-.09,20.58.22,41.18-.39,61.74-.51,17.4-16.58,32.54-34,32.58q-77.11.18-154.23,0c-17.71-.05-34-16.19-34-33.86Q-.07,185.85.07,70.2c0-4.19,2.25-6.58,6-6.59s6,2.4,6,6.92q0,56.52,0,113v113c0,17.08,9.82,26.86,27,26.86q73,0,146,0c13.08,0,22.58-7.41,25.16-19.54a18.44,18.44,0,0,0,.35-3.71q0-30.51,0-61C210.52,238.47,210.45,237.74,210.38,236.61Zm-6.14-12.29h25c0-2.68,0-5,0-7.41.09-13,12.22-20,23.62-13.82,2.24,1.23,4.44,2.51,6.82,3.86l12.55-21.8c-7.72-3.85-14.94-7.77-15-17.35-.06-9.78,7.46-13.62,15-17.5-1.26-2.23-2.32-4.18-3.43-6.09-3-5.16-6-10.31-9.12-15.67-2.71,1.52-5.14,3-7.66,4.27-10.75,5.48-22.56-1.68-22.74-13.75,0-2.68,0-5.37,0-8h-25c.25,8.4.64,16.71-7.88,21.64s-15.43-.1-22.58-4.21l-12.53,21.75c7.45,4,14.76,7.68,14.81,17.42.05,9.92-7.52,13.54-14.78,17.6l6.3,10.94,6.29,10.87c7.12-4.47,13.92-9.15,22.38-4.39C204.84,207.55,204.42,215.89,204.24,224.32ZM68.33,12.19c2.34,5.48,4.25,10.73,6.8,15.66,1.82,3.51,5.25,5.26,9.31,5.26q27,0,53.91,0c3.78,0,7.14-1.52,8.86-4.69,2.78-5.14,4.84-10.66,7.3-16.24Z"
+                    />
+                    <path
+                      d="M63.33,204.7c4.87,0,9.73,0,14.6,0,8.64.1,13.44,4.92,13.45,13.47,0,7.36,0,14.72,0,22.07,0,7.19-4.83,12.48-12,12.64-10.6.24-21.21.22-31.81,0-7.23-.14-12.16-5.53-12.23-12.88s-.07-15,0-22.45,5-12.52,12.65-12.86H63.33ZM79.1,240.42V217.21H47.85v23.21Z"
+                    />
+                    <path
+                      d="M63.53,116.11c-5.36,0-10.72.06-16.09,0a11.84,11.84,0,0,1-12.06-11.72q-.29-12.15,0-24.32c.16-6.89,5.4-11.82,12.36-11.86q15.7-.09,31.43,0c7.11,0,12.15,5.18,12.2,12.35q.09,11.59,0,23.2c-.05,7.41-5,12.3-12.49,12.37C73.76,116.16,68.65,116.12,63.53,116.11ZM79.24,80.37H47.82v23.46H79.24Z"
+                    />
+                    <path
+                      d="M63.62,184.56c-5,0-10,.08-15,0-8.57-.16-13.29-5-13.32-13.66,0-7.11,0-14.22,0-21.33.06-8,5.13-13.12,13.07-13.17q15-.09,29.94,0c8,0,13,5.1,13,13.12q0,11.22,0,22.45c0,7.11-4.56,12.1-11.68,12.48-5.34.29-10.72.06-16.08.06Zm15.57-35.64H47.91V172H79.19Z"
+                    />
+                    <path
+                      d="M111.12,302.59c-6.49,0-13,.05-19.46,0-4.41,0-7-2.37-7-6.05s2.68-6,7.07-6q19.65,0,39.29,0c4.37,0,6.93,2.33,6.91,6.09s-2.5,5.9-7,5.93C124.34,302.63,117.73,302.59,111.12,302.59Z"
+                    />
+                    <path
+                      d="M243.45,167.72a26.71,26.71,0,0,1-26.63,27,27,27,0,1,1,0-54A26.69,26.69,0,0,1,243.45,167.72Zm-41.4-.12a14.85,14.85,0,0,0,14.72,15.11,15,15,0,0,0-.11-30A14.84,14.84,0,0,0,202.05,167.6Z"
+                    />
+                  </g>
+                </g>
+              </svg>
+            </div>
+            <div class="service-name">App Development</div>
+          </div></div>
+        </div>
+      </div>
+      <div id="fourth-section">
+        <div class="title-with-red-square-before">My Works</div>
+        <div id="work-scrolling-area">
+          <div id="vertical-long">
+            <div id="works-container">
+              <div id="bbg-website" class="work-item">
+                <div class="work-name">BBG website</div>
+                <div class="work-img">
+                  <img src="img/BBG work.gif" alt="" srcset="" loading="lazy" />
+                </div>
+              </div>
+              <div id="udms-system" class="work-item" style="padding-top: 121px">
+                <div class="work-name">UDMS System</div>
+                <div class="work-img">
+                  <img
+                    src="img/udms work.gif"
+                    alt=""
+                    srcset=""
+                    loading="lazy"
+                  />
+                </div>
+              </div>
+              <div id="original-food" class="work-item" style="padding-top: 49px">
+                <div class="work-name">Original Food</div>
+                <div class="work-img">
+                  <img
+                    src="img/original food work.gif"
+                    alt=""
+                    srcset=""
+                    loading="lazy"
+                  />
+                </div>
+              </div>
+              <div id="barq-store" class="work-item">
+                <div class="work-name">Barq Store Management</div>
+                <div class="work-img">
+                  <img
+                    src="img/barq store work.gif"
+                    alt=""
+                    srcset=""
+                    loading="lazy"
+                  />
+                </div>
+              </div>
+              <div id="barq-mangement" class="work-item" style="padding-top: 177px">
+                <div class="work-name">Barq System Management</div>
+                <div class="work-img">
+                  <img
+                    src="img/barq mangment work.gif"
+                    alt=""
+                    srcset=""
+                    loading="lazy"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="fifth-section">
+        <div class="title-with-red-square-before">Contact Me</div>
+        <div id="contact-actions-container">
+          <form action="" id="contact-me-form">
+            <div id="name-form">
+              <input type="text" id="name-form-input" placeholder="Name" />
+            </div>
+            <div id="email-form">
+              <input type="text" id="email-form-input" placeholder="Email" />
+            </div>
+            <div id="message-form">
+              <textarea
+                name=""
+                id="message-form-input"
+                placeholder="Message"
+              ></textarea>
+            </div>
+            <div id="submit-btn">Submit</div>
+          </form>
+          <div id="social-media-icons-container">
+            <svg onclick="goTo('linkedin')" class="social-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="transition-delay: 300ms;">
+              <path d="M2.88459 0C1.29052 0 0.000257898 1.29481 0 2.88801C0 4.48275 1.29026 5.77731 2.88485 5.77731C4.47505 5.77731 5.76712 4.48275 5.76712 2.88801C5.76712 1.29455 4.47479 0 2.88459 0Z" fill="var(--white)"></path>
+              <path d="M5.37074 7.96875H0.39666V23.9999H5.37074V7.96875Z" fill="var(--white)"></path>
+              <path d="M18.0335 7.57031C15.6139 7.57031 13.9915 8.89923 13.3274 10.1594H13.2609V7.96894H8.49026H8.49001V23.9999H13.4597V16.0693C13.4597 13.9785 13.8571 11.9533 16.4449 11.9533C18.9955 11.9533 19.0295 14.3446 19.0295 16.2033V23.9996H24V15.2067C24 10.8905 23.0703 7.57031 18.0335 7.57031Z" fill="var(--white)"></path>
+            </svg>
+            <svg onclick="goTo('whatsapp')" class="social-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="transition-delay: 400ms;">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M7.04359 0.147275C5.09013 0.235415 3.39698 0.713012 2.02979 2.07442C0.657834 3.44299 0.18617 5.14285 0.0978101 7.07599C0.0428837 8.28256 -0.278297 17.398 0.653059 19.7885C1.28113 21.4012 2.51813 22.6412 4.14561 23.2713C4.90503 23.5667 5.77193 23.7666 7.04359 23.825C17.6766 24.3062 21.6181 24.0442 23.2802 19.7885C23.5751 19.031 23.7781 18.1648 23.8343 16.8963C24.3202 6.23605 23.7555 3.92538 21.9023 2.07442C20.4324 0.608192 18.7034 -0.389905 7.04359 0.147275ZM7.14148 21.6811C5.97728 21.6287 5.34564 21.4347 4.92414 21.2715C3.86383 20.8594 3.0674 20.0662 2.65784 19.0121C1.94858 17.1957 2.18382 8.56863 2.2471 7.17267C2.30919 5.80529 2.58621 4.55561 3.551 3.59083C4.74504 2.39973 6.28773 1.81599 16.7918 2.29005C18.1625 2.35198 19.4151 2.62843 20.3823 3.59083C21.5763 4.78192 22.1686 6.33648 21.6862 16.8002C21.6336 17.9615 21.439 18.5917 21.2754 19.0121C20.1948 21.7814 17.7088 22.1658 7.14148 21.6811ZM16.9076 5.62755C16.9076 6.41606 17.5488 7.05724 18.3405 7.05724C19.1321 7.05724 19.7745 6.41606 19.7745 5.62755C19.7745 4.83905 19.1321 4.19845 18.3405 4.19845C17.5488 4.19845 16.9076 4.83905 16.9076 5.62755ZM5.8352 11.9856C5.8352 15.3635 8.58032 18.1022 11.9666 18.1022C15.353 18.1022 18.0981 15.3635 18.0981 11.9856C18.0981 8.60763 15.353 5.87071 11.9666 5.87071C8.58032 5.87071 5.8352 8.60763 5.8352 11.9856ZM7.98687 11.9856C7.98687 9.79396 9.7684 8.01583 11.9666 8.01583C14.1649 8.01583 15.9464 9.79396 15.9464 11.9856C15.9464 14.1784 14.1649 15.957 11.9666 15.957C9.7684 15.957 7.98687 14.1784 7.98687 11.9856Z" fill="var(--white)"></path>
+            </svg>
+            <svg onclick="goTo('whatsapp')" class="social-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="transition-delay: 500ms;">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M18.9852 16.9453C18.696 17.764 17.5464 18.4412 16.6296 18.6393C16.002 18.7725 15.1836 18.8779 12.426 17.7352C9.3288 16.452 5.028 11.8812 5.028 8.83945C5.028 7.29099 5.9208 5.48789 7.482 5.48789C8.2332 5.48789 8.3988 5.50254 8.646 6.09551C8.9352 6.79412 9.64081 8.51535 9.7248 8.6918C10.0716 9.41561 9.37199 9.83934 8.86439 10.4695C8.70239 10.6592 8.51881 10.8643 8.72401 11.2172C8.92801 11.5629 9.6336 12.7129 10.6704 13.6359C12.0096 14.8291 13.0956 15.21 13.4844 15.3721C13.7736 15.4921 14.1192 15.4641 14.3304 15.2385C14.598 14.9492 14.9304 14.4692 15.2688 13.9963C15.5076 13.6578 15.8112 13.6155 16.1292 13.7355C16.344 13.81 19.074 15.0778 19.1892 15.2807C19.2744 15.4283 19.2744 16.1267 18.9852 16.9453ZM12.0024 0H11.9964C5.38079 0 0 5.38242 0 12C0 14.624 0.846008 17.0584 2.28481 19.033L0.789606 23.492L5.40121 22.0184C7.29841 23.2739 9.5628 24 12.0024 24C18.618 24 24 18.6176 24 12C24 5.38242 18.618 0 12.0024 0Z" fill="var(--white)"></path>
+            </svg>
+          </div>
+        </div>
+        <a id="a-links"></a>
+        <footer>Copyright © 2024 NOOH AL-JABRI</footer>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
