@@ -22,7 +22,6 @@ body {
   color: var(--gray);
   font-family: Arial, Arial, Helvetica, sans-serif;
   font-size: 16px;
-  transition: 500ms;
 }
 
 /* ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â¹ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Â¦ÃƒËœÃ‚Â© */
@@ -380,12 +379,14 @@ body {
 }
 
 #sections-container::-webkit-scrollbar {
-  background: transparent;
   width: 3px;
 }
 
 #sections-container::-webkit-scrollbar-track {
-  background: transparent;
+  background: var(--dark-blue);
+}
+#sections-container.scroll-bar-background::-webkit-scrollbar-track {
+  background: var(--light-white);
 }
 
 #sections-container::-webkit-scrollbar-thumb {
