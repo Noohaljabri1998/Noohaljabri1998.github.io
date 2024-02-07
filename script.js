@@ -162,11 +162,11 @@ function handleIntersect(entries, observer) {
     if (entry.isIntersecting) {
       entry.target.classList.add("show");
       if (entry.target.id === "fifth-section" ||entry.target.id === "fourth-section" ) {
-        document.getElementById("sections-container").classList.add("scroll-bar-background");
+        document.body.style.backgroundColor="var(--light-white)";
         menuBtn.classList.add("light-color");
         document.getElementById("contact-btn").classList.add("light-color");
       } else {
-        document.getElementById("sections-container").classList.remove("scroll-bar-background");
+        document.body.style.backgroundColor="var(--dark-blue)";
         menuBtn.classList.remove("light-color");
         document.getElementById("contact-btn").classList.remove("light-color");
       }
