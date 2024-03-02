@@ -242,7 +242,7 @@ workScrollArea.addEventListener("scroll", function(event) {
 function goTo(destination,hash="") {
   let link="";
   switch (destination) {
-    case "whatsapp":link="https://wa.me/message/Z3M723RPXCASF1"
+    case "whatsapp":link="https://wa.me/message/DH6I4NQPG7TOD1"
       
       break;
       case "linkedin":link="https://linkedin.com/in/nooh-al-jabri-0490242b0"
