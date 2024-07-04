@@ -6,7 +6,6 @@
 :root {
   display: block;
   --red: #970726;
-  --p0p: #970726;
   --white: #ffffff;
   --gray: #d9d9d9;
   --light-white: #f9f9f9;
@@ -674,20 +673,23 @@ body {
   background: var(--red);
   transition: 2000ms 100ms;
 }
-
 .show .skill-bar:nth-child(1)::before {
+  width: 78%;
+}
+
+.show .skill-bar:nth-child(2)::before {
   width: 97%;
 }
-.show .skill-bar:nth-child(2)::before {
+.show .skill-bar:nth-child(3)::before {
   width: 95%;
 }
-.show .skill-bar:nth-child(3)::before {
+.show .skill-bar:nth-child(4)::before {
   width: 85%;
 }
-.show .skill-bar:nth-child(4)::before {
+.show .skill-bar:nth-child(5)::before {
   width: 70%;
 }
-.show .skill-bar:nth-child(5)::before {
+.show .skill-bar:nth-child(6)::before {
   width: 78%;
 }
 #skills-background-circle {
