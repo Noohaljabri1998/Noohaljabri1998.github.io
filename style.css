@@ -654,6 +654,10 @@ body {
 .skill-bar:nth-child(5) {
   transition-delay: 400ms;
 }
+.skill-label:nth-child(6),
+.skill-bar:nth-child(6) {
+  transition-delay: 500ms;
+}
 .skill-label {
   height: 24px;
 }
@@ -850,9 +854,10 @@ body {
   position: sticky;
   top: 0;
   display: flex;
-  transition: 100ms ease-out;
   transform-style: preserve-3d;
+  transition: 600ms cubic-bezier(0.02, -0.02, 0.14, 0.94);
 }
+
 .work-item {
   width: 100vw;
   padding: 30px;
