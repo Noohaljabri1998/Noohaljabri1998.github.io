@@ -1,4 +1,3 @@
-
 var preloadPage = document.getElementById("preload-page");
 var whiteLoaded = document.getElementById("white-loaded-in-preloading-page");
 var increacingWhiteNum = document.getElementById("white-loading-progress-num");
@@ -7,7 +6,7 @@ var redLine = document.getElementById("red-line-go-down");
 var splitWhiteDiv = document.querySelectorAll(
   "#container-of-tow-white-divs >div"
 );
-var menuBtn=document.getElementById("menu-btn");
+var menuBtn = document.getElementById("menu-btn");
 var textContainerPreload = document.getElementById("text-container-preload");
 var noohTextPreload = document.getElementById("nooh-text-preload");
 var symbolTextPreload = document.getElementsByClassName("symbol");
@@ -37,7 +36,9 @@ function redLineGoDown() {
         "translate(-50%, -50%) rotate(90deg) scale(1)";
 
       setTimeout(() => {
-        document.getElementById("nooh-text-preload").classList.add("reset-width");
+        document
+          .getElementById("nooh-text-preload")
+          .classList.add("reset-width");
         document.querySelectorAll("#nooh-text-preload>div").forEach((el) => {
           el.style.transform = "unset";
           el.style.opacity = "1";
@@ -103,20 +104,16 @@ function loadingPage() {
 }
 loadingPage();
 
-
 ////float btn ////////////////////////////////////////////
 
-
-let contactBtn=document.getElementById("contact-btn");
-contactBtn.addEventListener("click",()=>{
+let contactBtn = document.getElementById("contact-btn");
+contactBtn.addEventListener("click", () => {
   contactBtn.classList.toggle("show");
 });
 
-
 ////menu btn////////////////////////////////////////////////
 
-
-menuBtn.addEventListener("click",()=>{
+menuBtn.addEventListener("click", () => {
   menuBtn.classList.toggle("active");
   document.getElementById("menu-list").classList.toggle("active");
 });
@@ -125,11 +122,7 @@ menuBtn.addEventListener("click",()=>{
 
 ///////float btn//////////////////////////////////////////////////////
 
-
 //observer api////////////////////////////////////////////////////////
-
-
-
 
 let boxElements;
 
@@ -140,7 +133,7 @@ window.addEventListener(
     observerSections = document.querySelectorAll("#sections-container>div");
     createObserver();
   },
-  false,
+  false
 );
 
 function createObserver() {
@@ -153,187 +146,169 @@ function createObserver() {
   };
 
   observer = new IntersectionObserver(handleIntersect, options);
-  observerSections.forEach((observerSection)=>{
+  observerSections.forEach((observerSection) => {
     observer.observe(observerSection);
-  })
+  });
 }
 function handleIntersect(entries, observer) {
   entries.forEach((entry) => {
     if (entry.isIntersecting) {
       entry.target.classList.add("show");
-      if (entry.target.id === "fifth-section" ||entry.target.id === "fourth-section" ) {
-        document.getElementById("sections-container").classList.add("scroll-bar-background");
+      if (
+        entry.target.id === "fifth-section" ||
+        entry.target.id === "fourth-section"
+      ) {
+        document
+          .getElementById("sections-container")
+          .classList.add("scroll-bar-background");
         menuBtn.classList.add("light-color");
         document.getElementById("contact-btn").classList.add("light-color");
       } else {
-        document.getElementById("sections-container").classList.remove("scroll-bar-background");
+        document
+          .getElementById("sections-container")
+          .classList.remove("scroll-bar-background");
         menuBtn.classList.remove("light-color");
         document.getElementById("contact-btn").classList.remove("light-color");
       }
-    } else{
+    } else {
     }
   });
 }
 
-
-
 ///observer api////////////////////////////////////////////////////////////
-
-
 
 ///slide down web & mob//////////////////////////////////////////////////////
 
-var son=document.querySelectorAll(".son");
-var posbool=true;
-var dd= setInterval(() => {
+var son = document.querySelectorAll(".son");
+var posbool = true;
+var dd = setInterval(() => {
   if (posbool) {
-    son[0].classList.replace("center","bottom");
-    son[1].classList.replace("top","center");
+    son[0].classList.replace("center", "bottom");
+    son[1].classList.replace("top", "center");
     setTimeout(() => {
-      son[0].classList.replace("bottom","top");
+      son[0].classList.replace("bottom", "top");
     }, 1000);
-  posbool=false;
-  }else{
-    son[1].classList.replace("center","bottom");
-    son[0].classList.replace("top","center");
+    posbool = false;
+  } else {
+    son[1].classList.replace("center", "bottom");
+    son[0].classList.replace("top", "center");
     setTimeout(() => {
-      son[1].classList.replace("bottom","top");
+      son[1].classList.replace("bottom", "top");
     }, 100);
-    posbool=true;
+    posbool = true;
   }
 }, 6000);
 
-
-
-
-
 ///slide down web & mob///////////////////////////////////////////////////////
-
-
 
 ////scroll horizontal ///////////////////////////////////////////////////////
 
-
-
-
 var workScrollArea = document.querySelector("#work-scrolling-area");
-if (window.innerWidth<950) {
-
-var unincludedArea=document.querySelector("#work-scrolling-area").clientHeight-(window.innerWidth*2);
-document.querySelector("#vertical-long").style.height =document.querySelector("#vertical-long").clientHeight+(unincludedArea)+"px";
+if (window.innerWidth < 950) {
+  var unincludedArea =
+    document.querySelector("#work-scrolling-area").clientHeight -
+    window.innerWidth * 2;
+  document.querySelector("#vertical-long").style.height =
+    document.querySelector("#vertical-long").clientHeight +
+    unincludedArea +
+    "px";
 } else {
-  
-var itemWidth=document.querySelector("#work-scrolling-area").clientHeight*2;
-document.querySelector("#vertical-long").style.height =(document.querySelector("#vertical-long").clientHeight/2.5)+"px";
+  var itemWidth =
+    document.querySelector("#work-scrolling-area").clientHeight * 2;
+  document.querySelector("#vertical-long").style.height =
+    document.querySelector("#vertical-long").clientHeight / 2.5 + "px";
 }
 
-
-workScrollArea.addEventListener("scroll", function(event) {
-  var scrollPosition = Math.floor( workScrollArea.scrollTop/2);
-  document.querySelector("#works-container").style.transform="translateX(-"+scrollPosition+"px)";
+workScrollArea.addEventListener("scroll", function (event) {
+  var scrollPosition = Math.floor(workScrollArea.scrollTop / 2);
+  document.querySelector("#works-container").style.transform =
+    "translateX(-" + scrollPosition + "px)";
   // You can perform additional actions based on the scroll position within the element
 });
 
-
 ////scroll horizontal ////////////////////////////////////////////////////////////////////////////
 
-
-
-function goTo(destination,hash="") {
-  let link="";
+function goTo(destination, hash = "") {
+  let link = "";
   switch (destination) {
-    case "whatsapp":link="https://wa.me/message/Z3M723RPXCASF1"
-      
+    case "whatsapp":
+      link = "https://wa.me/message/Z3M723RPXCASF1";
+
       break;
-      case "linkedin":link="https://linkedin.com/in/nooh-al-jabri-0490242b0"
-        
-        break;
-        case "inPage":link="#"+hash;
-        menuBtn.classList.toggle("active");
-        document.getElementById("menu-list").classList.toggle("active");
-          
-          break;
-        case "copy":copyLink();
-          
-          break;
+    case "linkedin":
+      link = "https://linkedin.com/in/nooh-al-jabri-0490242b0";
+
+      break;
+    case "inPage":
+      link = "#" + hash;
+      menuBtn.classList.toggle("active");
+      document.getElementById("menu-list").classList.toggle("active");
+
+      break;
+    case "copy":
+      copyLink();
+
+      break;
     default:
       break;
   }
-  if (link=="") {
-    
-  }else{
-  document.getElementById("a-links").href=link;
-  document.getElementById("a-links").click();}
+  if (link == "") {
+  } else {
+    document.getElementById("a-links").href = link;
+    document.getElementById("a-links").click();
+  }
 }
 let textToCopy = "https://noohaljabri.000.pe/";
 
 function copyLink() {
-  
   var tempInput = document.createElement("input");
-  tempInput.value = textToCopy; 
-  document.body.appendChild(tempInput); 
+  tempInput.value = textToCopy;
+  document.body.appendChild(tempInput);
 
   tempInput.select();
   document.execCommand("copy");
   document.body.removeChild(tempInput);
+}
 
-             }
+///setup for desktop//////////////////////////////////////
+window.addEventListener("load", () => {
+  if (window.innerWidth > 950) {
+    var nameWithImg = document.getElementById("name-with-img");
+    var myInfo = document.getElementById("my-info");
+    var introMySelf = document.getElementById("itroducting-my-self");
+    var leftContainer = document.createElement("div");
+    leftContainer.appendChild(myInfo);
+    leftContainer.appendChild(introMySelf);
+    nameWithImg.parentNode.insertBefore(leftContainer, nameWithImg.nextSibling);
 
+    ///setup for desktop//////////////////////////////////////
 
+    ///3d card hovering//////////////////////////////////////
 
-             ///setup for desktop//////////////////////////////////////
-             window.addEventListener("load",()=>{
-              if (window.innerWidth>950) {
-              
-                var nameWithImg = document.getElementById('name-with-img');
-                var myInfo = document.getElementById('my-info');
-                var introMySelf = document.getElementById('itroducting-my-self');
-                var leftContainer = document.createElement('div');
-                leftContainer.appendChild(myInfo);
-                leftContainer.appendChild(introMySelf);
-                nameWithImg.parentNode.insertBefore(leftContainer, nameWithImg.nextSibling);
-              
-             ///setup for desktop//////////////////////////////////////
+    var rotate3d = document.getElementsByClassName("rotate-3d");
+    Array.from(rotate3d).forEach((el) => {
+      el.children[1].addEventListener("mouseover", function () {
+        el.children[0].style.transition = "200ms 0ms";
+        setTimeout(() => {
+          el.children[0].style.transition = "50ms 0ms";
+        }, 500);
+      });
+      el.children[1].addEventListener("mousemove", function (e) {
+        // console.log("pageX" + e.pageX + ",,,clientWidth" + el.clientWidth);
+        let rect = el.getBoundingClientRect();
+        let xAxis = Math.floor(-(rect.width / 2 - e.clientX + rect.left)) / 10;
+        let yAxis = Math.floor(rect.height / 2 - e.clientY + rect.top) / 10;
 
-             
-             ///3d card hovering//////////////////////////////////////
+        el.children[0].style.transform = `rotateY(${xAxis}deg) rotateX(${yAxis}deg)`;
+      });
 
-             var rotate3d = document.getElementsByClassName("rotate-3d");
-             Array.from(rotate3d).forEach((el) => {
-              el.addEventListener('mouseover', function() {
-                el.children[0].style.transition="500ms 0ms";
-                setTimeout(() => {
-                  el.children[0].style.transition="50ms 0ms";
-                }, 500);
+      el.children[1].addEventListener("mouseout", function () {
+        el.children[0].style.transition = "200ms 0ms";
+        el.children[0].style.transform = `rotateY(0deg) rotateX(0deg)`;
+        console.log("out1");
+      });
+    });
 
-              })
-                el.addEventListener('mousemove', function(e) {
-                  console.log("pageX"+e.pageX+",,,clientWidth"+el.clientWidth);
-                  let rect = el.getBoundingClientRect();
-                  let xAxis = Math.floor(-(rect.width / 2 - e.clientX + rect.left) )/10;
-                  let yAxis = Math.floor((rect.height / 2 - e.clientY + rect.top) )/10;
-                     
-              el.children[0].style.transform = `rotateY(${xAxis}deg) rotateX(${yAxis}deg)`;
-                 });
-
-                 
-              el.addEventListener('mouseout', function() {
-                el.children[0].style.transition="500ms 0ms";
-                el.children[0].style.transform = `rotateY(0deg) rotateX(0deg)`;
-
-              })
-             });
-             
-
-
-
-
-
-             ///3d card hovering//////////////////////////////////////
-              
-              
-              
-              
-              }
-
-             })
+    ///3d card hovering//////////////////////////////////////
+  }
+});

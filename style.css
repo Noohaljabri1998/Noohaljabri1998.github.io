@@ -1197,9 +1197,15 @@ a#a-links {
   .service-name {
     transform: translateZ(60px) scale(0.4) translateY(-214px);
   }
+  .touch-circal{
+    background: transparent;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    border-radius: 50%;
+  }
   .rotate-3d {
     perspective: 1000px;
-    background: red;
     width: 500px;
     height: 500px;
     display: flex;
