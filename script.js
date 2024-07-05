@@ -258,7 +258,7 @@ function goTo(destination, hash = "") {
     document.getElementById("a-links").click();
   }
 }
-let textToCopy = "https://noohaljabri.000.pe/";
+let textToCopy = "https://Noohaljabri1998.github.io/";
 
 function copyLink() {
   var tempInput = document.createElement("input");
