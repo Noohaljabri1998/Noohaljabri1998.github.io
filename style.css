@@ -1114,6 +1114,12 @@ a#a-links {
     right: 10vh;
 
     top: 8vh;
+    transition:200ms;
+  }
+  #menu-btn:hover {
+    right: 10vh;
+    transform:scale(1.2);
+    top: 8vh;
   }
   #contact-btn {
     right: 16vh;
