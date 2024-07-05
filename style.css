@@ -70,6 +70,10 @@ body {
   font-weight: 800;
   border-left: 8vw solid var(--red);
   padding: 0 6vw;
+  transition:400ms;
+}
+.title-with-red-square-before:hover {
+  border-left: 10vw solid var(--red);
 }
 
 /* ÃƒÆ’Ã‹Å“Ãƒâ€šÃ‚Â§ÃƒÆ’Ã¢â€žÂ¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¾ÃƒÆ’Ã‹Å“Ãƒâ€šÃ‚Â¹ÃƒÆ’Ã‹Å“Ãƒâ€šÃ‚Â§ÃƒÆ’Ã¢â€žÂ¢ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¦ÃƒÆ’Ã‹Å“Ãƒâ€šÃ‚Â© */
