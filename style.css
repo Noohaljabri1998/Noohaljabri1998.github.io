@@ -1117,14 +1117,23 @@ a#a-links {
     transition:200ms;
   }
   #menu-btn:hover {
-    right: 10vh;
     transform:scale(1.2);
-    top: 8vh;
   }
   #contact-btn {
     right: 16vh;
-
     bottom: 20vh;
+  }
+  #whatsapp-btn:hover {
+    transform:translate(-64px, -64px) scale(1.2);
+  }
+  #linkedin-btn:hover {
+    transform:translate(0px, -86px) scale(1.2);
+  }
+  #copy-link-btn:hover {
+    transform:translate(-86px, 0px) scale(1.2);
+  }
+  #send-btn:hover {
+    transform:scale(1.2);
   }
   #side-developer-text {
     left: -7vh;
