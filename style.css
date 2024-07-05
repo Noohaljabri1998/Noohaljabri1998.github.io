@@ -24,7 +24,7 @@ body {
   font-size: 16px;
 }
 
-/* ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â¹ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Â¦ÃƒËœÃ‚Â© */
+/* ÃƒÆ’Ã‹Å“Ãƒâ€šÃ‚Â§ÃƒÆ’Ã¢â€žÂ¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¾ÃƒÆ’Ã‹Å“Ãƒâ€šÃ‚Â¹ÃƒÆ’Ã‹Å“Ãƒâ€šÃ‚Â§ÃƒÆ’Ã¢â€žÂ¢ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¦ÃƒÆ’Ã‹Å“Ãƒâ€šÃ‚Â© */
 .p {
   line-height: 24px;
   opacity: 0.8;
@@ -72,7 +72,7 @@ body {
   padding: 0 6vw;
 }
 
-/* ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â¹ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Â¦ÃƒËœÃ‚Â© */
+/* ÃƒÆ’Ã‹Å“Ãƒâ€šÃ‚Â§ÃƒÆ’Ã¢â€žÂ¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¾ÃƒÆ’Ã‹Å“Ãƒâ€šÃ‚Â¹ÃƒÆ’Ã‹Å“Ãƒâ€šÃ‚Â§ÃƒÆ’Ã¢â€žÂ¢ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¦ÃƒÆ’Ã‹Å“Ãƒâ€šÃ‚Â© */
 
 /* preload page */
 
@@ -758,6 +758,16 @@ body {
   padding: 12vh 0;
   gap: 16px;
 }
+3d-rotate {
+  opacity: 0;
+  transition: var(--show-transtion);
+  transform: scale(1.5);
+}
+.show .3d-rotate {
+  transition-delay: 200ms;
+  opacity: 1;
+  transform: scale(1);
+}
 .service-card {
   display: flex;
   background: var(--white);
@@ -767,17 +777,11 @@ body {
   flex-direction: column;
   padding: 5%;
   justify-content: center;
-  opacity: 0;
-  transition: var(--show-transtion);
-  transform: scale(1.5);
 }
-
 .service-card:last-child {
-  transition-delay: 200ms;
 }
-.show .service-card {
-  opacity: 1;
-  transform: scale(1);
+.service-card {
+  j
 }
 .srevice-icon {
   flex-grow: 1;
@@ -1080,7 +1084,7 @@ footer {
 a#a-links {
   display: none;
 }
-/* ÃƒËœÃ‚Â­ÃƒËœÃ‚Â±Ãƒâ„¢Ã†â€™ÃƒËœÃ‚Â§ÃƒËœÃ‚Âª */
+/* ÃƒÆ’Ã‹Å“Ãƒâ€šÃ‚Â­ÃƒÆ’Ã‹Å“Ãƒâ€šÃ‚Â±ÃƒÆ’Ã¢â€žÂ¢Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã‹Å“Ãƒâ€šÃ‚Â§ÃƒÆ’Ã‹Å“Ãƒâ€šÃ‚Âª */
 
 /*media query/                 */
 
@@ -1195,6 +1199,13 @@ a#a-links {
   }
   .rotate-3d {
     perspective: 1000px;
+    background: red;
+    width: 500px;
+    height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
   }
   .service-card {
     transform-style: preserve-3d;
@@ -1256,4 +1267,4 @@ a#a-links {
   }
 }
 
-/* ÃƒËœÃ‚Â­ÃƒËœÃ‚Â±Ãƒâ„¢Ã†â€™ÃƒËœÃ‚Â§ÃƒËœÃ‚Âª */
+/* ÃƒÆ’Ã‹Å“Ãƒâ€šÃ‚Â­ÃƒÆ’Ã‹Å“Ãƒâ€šÃ‚Â±ÃƒÆ’Ã¢â€žÂ¢Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã‹Å“Ãƒâ€šÃ‚Â§ÃƒÆ’Ã‹Å“Ãƒâ€šÃ‚Âª */
