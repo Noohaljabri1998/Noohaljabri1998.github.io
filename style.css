@@ -14,7 +14,7 @@
   --show-transtion: opacity 2000ms, transform 400ms;
 }
 body {
-  cursor: url("/img/Asset\ 3.png"), auto;
+  cursor: url("img/Asset 3.png"), auto;
   background-color: var(--dark-blue);
   display: flex;
   width: 100vw;
