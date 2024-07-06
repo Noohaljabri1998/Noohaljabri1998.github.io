@@ -436,14 +436,16 @@
             <div id="email-form">
               <input type="text" id="email-form-input" placeholder="Email" />
             </div>
-            <div id="message-form">
+            <div id="message-form-input">
               <textarea
                 name=""
-                id="message-form-input"
+                id="message-textarea"
                 placeholder="Message"
               ></textarea>
             </div>
-            <div id="submit-btn">Submit</div>
+            <div id="submit-btn" onclick="this.children[0].click();">
+              Submit<input type="submit" style="display: none" />
+            </div>
           </form>
           <div id="social-media-icons-container">
             <svg

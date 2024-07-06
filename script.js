@@ -242,7 +242,7 @@ function goTo(destination, hash = "") {
   let link = "";
   switch (destination) {
     case "whatsapp":
-      link = "https://wa.me/message/Z3M723RPXCASF1";
+      link = "https://wa.me/message/DH6I4NQPG7TOD1";
 
       break;
     case "linkedin":
@@ -322,3 +322,37 @@ window.addEventListener("load", () => {
     ///3d card hovering//////////////////////////////////////
   }
 });
+
+///contact me form///////////////////////////////
+document
+  .getElementById("contact-me-form")
+  .addEventListener("submit", function (event) {
+    event.preventDefault();
+    const name = document.getElementById("name-form-input").value;
+    const email = document.getElementById("email-form-input").value;
+    const message = document.getElementById("message-textarea").value;
+
+    const endpoint = "https://formspree.io/f/xanwyaqy";
+
+    fetch(endpoint, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        name: name,
+        email: email,
+        message: message,
+      }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        alert("Your message has been sent successfully!");
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+        alert(
+          "There was an error sending your message. Please try again later."
+        );
+      });
+  });

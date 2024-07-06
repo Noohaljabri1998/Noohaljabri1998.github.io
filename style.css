@@ -1032,14 +1032,14 @@ body {
 
 #email-form-input {
 }
-#message-form {
+#message-form-input {
   transition-delay: 200ms;
 
   margin-top: 19px;
 
   min-height: 50px;
 }
-#message-form-input {
+#message-textarea {
   overflow: hidden;
 }
 #submit-btn {
