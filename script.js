@@ -108,7 +108,17 @@ loadingPage();
 
 let contactBtn = document.getElementById("contact-btn");
 contactBtn.addEventListener("click", () => {
+  contactBtn.children[0].style.transition = "500ms";
+  contactBtn.children[1].style.transition = "500ms";
+  contactBtn.children[2].style.transition = "500ms";
+  contactBtn.children[3].style.transition = "500ms";
   contactBtn.classList.toggle("show");
+  setTimeout(() => {
+    contactBtn.children[0].style.transition = "200ms";
+    contactBtn.children[1].style.transition = "200ms";
+    contactBtn.children[2].style.transition = "200ms";
+    contactBtn.children[3].style.transition = "200ms";
+  }, 400);
 });
 
 ////menu btn////////////////////////////////////////////////
