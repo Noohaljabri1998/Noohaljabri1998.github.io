@@ -250,6 +250,7 @@ function goTo(destination, hash = "") {
 
       break;
     case "inPage":
+      document.getElementById("a-links").target = "_self";
       link = "#" + hash;
       menuBtn.classList.toggle("active");
       document.getElementById("menu-list").classList.toggle("active");
