@@ -242,7 +242,7 @@ function goTo(destination, hash = "") {
   let link = "";
   switch (destination) {
     case "whatsapp":
-      link = "https://wa.me/message/DH6I4NQPG7TOD1";
+      link = "https://wa.me/967773095921";
 
       break;
     case "linkedin":
